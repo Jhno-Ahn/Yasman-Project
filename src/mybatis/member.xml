@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- user.xml -->
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="YasMember">
+ 
+   
+ 	<select id = "checkId" parameterType = "String" resultType = "int">
+ 		select count(*) from yas_member where id = #{id}
+ 	</select>
+ 	
+ 	<select id = "checkNickName" parameterType = "String" resultType = "int">
+ 		select count(*) from yas_member where nick_name = #{nick_name}
+ 	</select>
+ 	
+ 	 
+ 	 <!-- 
+ 	<select id = "getMember" parameterType = "String" resultType = "member.LogonDataBean">
+ 		select * from member where id = #{id}
+ 	</select>
+ 	 -->
+ 
+ 	<insert id = "insertMember" parameterType = "member.MemberLogonDataBean">
+ 		insert into yas_member(member_num, id, member_name, nick_name, passwd, member_tel, reg_num, member_reg_date) 
+ 		values(yas_member_num.NEXTVAL, #{id}, #{member_name}, #{nick_name}, #{passwd}, #{member_tel}, #{reg_num}, #{member_reg_date})
+ 	</insert>
+ 	
+ 	<!-- 
+ 	<delete id = "deleteMember" parameterType = "String">
+ 		delete from member where id = #{id}
+ 	</delete>
+ 	
+ 	<update id = "modifyMember" parameterType = "member.LogonDataBean" 	>
+ 		update member set passwd = #{passwd}, tel = #{tel, jdbcType=VARCHAR}, email = #{email, jdbcType=VARCHAR}
+ 		where id = #{id} 
+ 	</update>
+ 	 -->
+ </mapper>

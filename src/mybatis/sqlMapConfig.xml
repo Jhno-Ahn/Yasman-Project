@@ -28,6 +28,7 @@
   	<!-- Mapper 설정(안에 sql이 들어감) -->
   	<mappers>
   		<mapper resource="mybatis/member.xml"/>
+  		<mapper resource="mybatis/story.xml"/>
   	</mappers>
   	
   </configuration>

@@ -1,0 +1,68 @@
+    @keyframes hidePreloader {
+        0% {
+            width: 100%;
+            height: 100%;
+        }
+
+        100% {
+            width: 0;
+            height: 0;
+        }
+    }
+
+    body>div.preloader {
+        position: fixed;
+        background: white;
+        width: 100%;
+        height: 100%;
+        z-index: 1071;
+        opacity: 0;
+        transition: opacity .5s ease;
+        overflow: hidden;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    body:not(.loaded)>div.preloader {
+        opacity: 1;
+    }
+
+    body:not(.loaded) {
+        overflow: hidden;
+    }
+
+    body.loaded>div.preloader {
+        animation: hidePreloader .5s linear .5s forwards;
+
+    }
+
+
+    .ScrollButton {
+        position: fixed;
+        /* 버튼의 위치 고정 */
+        right: 10px;
+        /* x 위치 입력 */
+        cursor: pointer;
+        /* 호버링 했을 때 커서 모양 변경 */
+        z-index: 10;
+        /* 다른 태그에 가려지지 않게 우선순위 변경 */
+        display: none;
+        /* 스크롤 위치에 상관없이 보이게 하려면 생략 */
+    }
+
+    /* 두 태그에 각각 y 위치 입력 */
+    #TopButton {
+        position: fixed;
+        left: 95%;
+        bottom: 50px;
+
+    }
+
+    #chatbot {
+        position: fixed;
+        left: 95%;
+        bottom: 120px;
+
+    }

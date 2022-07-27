@@ -10,38 +10,16 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
-  <!-- 
-  <servlet>
-  	<servlet-name>Controller</servlet-name>
-  	<servlet-class>control.Controller</servlet-class>
-  	<init-param>
-  		<param-name>configFile</param-name>
-  		<param-value>WEB-INF/handler.properties</param-value>
-  	</init-param>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>Controller</servlet-name>
-  	<url-pattern>*.do</url-pattern>
-  </servlet-mapping>
-   -->
+ 
    
    <servlet>
-   		<servlet-name>YasMember</servlet-name>
+   		<servlet-name>YasMan</servlet-name>
    		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
    </servlet>
    <servlet-mapping>
-   		<servlet-name>YasMember</servlet-name>
+   		<servlet-name>YasMan</servlet-name>
    		<url-pattern>*.do</url-pattern>
    </servlet-mapping>
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+
+
 </web-app>

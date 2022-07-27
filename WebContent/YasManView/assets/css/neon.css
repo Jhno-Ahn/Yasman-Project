@@ -1,0 +1,116 @@
+   /* 형광펜 */
+   .mt-4 span {
+    color: black;
+    font-size: 60px;
+}
+body {
+    padding: 16px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.underline {
+    line-height: 1.2;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 50px;
+    font-weight: 700;
+    background-image: linear-gradient(transparent calc(100% - 3px), #000 3px);
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    transition: background-size 0.8s;
+    color: #000;
+    cursor: pointer;
+}
+
+@media (min-width: 1000px) {
+    .underline {
+        font-size: 5em;
+    }
+}
+
+.underline.yellow {
+    background-image: linear-gradient(transparent 60%, #F8CD07 40%);
+}
+
+.underline:hover {
+    background-size: 100% 100%;
+}
+/*  */
+
+@keyframes hidePreloader {
+    0% {
+        width: 100%;
+        height: 100%;
+    }
+
+    100% {
+        width: 0;
+        height: 0;
+    }
+}
+
+body>div.preloader {
+    position: fixed;
+    background: white;
+    width: 100%;
+    height: 100%;
+    z-index: 1071;
+    opacity: 0;
+    transition: opacity .5s ease;
+    overflow: hidden;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body:not(.loaded)>div.preloader {
+    opacity: 1;
+}
+
+body:not(.loaded) {
+    overflow: hidden;
+}
+
+body.loaded>div.preloader {
+    animation: hidePreloader .5s linear .5s forwards;
+}
+
+/* 960 해상도 이하 기기에서는 배너 안보이게 하기 */
+@media all and (max-width: 960px) {
+    #slider {
+        display: none;
+    }
+}
+
+@media all and (max-width: 660px) {
+    #chatbot>img {
+        position: fixed;
+        left: 88%;
+        bottom: 120px;
+    }
+
+    #TopButton>img {
+        position: fixed;
+        left: 88%;
+        bottom: 50px;
+    }
+}
+
+
+body>div.preloader {
+    position: fixed;
+    background: white;
+    width: 100%;
+    height: 100%;
+    z-index: 1071;
+    opacity: 0;
+    transition: opacity .5s ease;
+    overflow: hidden;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

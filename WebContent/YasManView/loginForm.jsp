@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+
 <head>
-  <title>Yas-Login</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/YasMan/YasMember/memberInputForm.css">
+  <link rel="stylesheet" href="/YasMan/YasManView/memberInputForm.css">
 </head>
 
 <body>
@@ -16,7 +16,7 @@
       <div class="row justify-content-center align-items-center">
         <div class="col-md-7 col-lg-5">
           <div class="wrap">
-            <a href="index.html">
+            <a href="lognPro.do">
               <div class="img" style="background-image: url(/YasMan/Images/yasLogo.png);"></div>
             </a>
             <div class="login-wrap p-4 p-md-5">
@@ -27,12 +27,12 @@
               </div>
               <form action="loginPro.do" class="signin-form">
                 <div class="form-group mt-3">
-                  <input type="text" class="form-control" required>
-                  <label class="form-control-placeholder" for="username" style="color: gray;">아이디</label>
+                  <input type="text" class="form-control" name = "id" required>
+                  <label class="form-control-placeholder" style="color: gray;">아이디</label>
                 </div>
                 <div class="form-group">
-                  <input id="password-field" type="password" class="form-control" required>
-                  <label class="form-control-placeholder" for="password" style="color: gray;">비밀번호</label>
+                  <input id="password-field" type="password" name = "passwd" class="form-control" required>
+                  <label class="form-control-placeholder"style="color: gray;">비밀번호</label>
                   <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                 </div>
                 <div class="form-group" >
@@ -60,11 +60,6 @@
       </div>
     </div>
   </section>
-
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/popper.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
-  <script src="assets/js/main.js"></script>
 
 </body>
 

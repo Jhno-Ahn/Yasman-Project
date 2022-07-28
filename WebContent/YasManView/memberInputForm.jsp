@@ -7,9 +7,8 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
-<link rel="icon" href="assets/img/vegan/logo2.png" type="image/png">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="/YasMan/YasMember/memberInputForm.css">
+<link rel="stylesheet" href="/YasMan/YasManView/memberInputForm.css">
 
 <style>
 	#checkButton {
@@ -91,12 +90,9 @@
 										class="fa fa-fw fa-eye field-icon toggle-password"></span>
 								</div>
 								<div class="form-group">
-									<input type="text" class="form-control" name="member_tel" placeholder="연락처를 입력하세요" >
+									<input type="text" class="form-control" name="member_tel" required >
 									<label class="form-control-placeholder"style="color: gray;">연락처</label>
-									<input type="text" class="form-control" name="inputCertifiedNumber" placeholder="인증번호를 입력하세요">
-									<!-- <input type="button" class="form-control" id="sendPhoneNumber" value="휴대폰인증"> -->
-									 <h6><button class = "button" id="sendPhoneNumber">휴대폰 인증</button></h6>
-									 <input type="button" class="form-control" id="phoneCheck" value="인증확인">
+									<h6><button class = "button" id = "checkButton">휴대폰 인증</button></h6>
 								</div>
 								<div class="form-group">
 									<input type="password" class="form-control" name="reg_num"required>
@@ -120,56 +116,14 @@
 			</div>
 		</div>
 	</section>
-	<script src="/YasMan/YasMember/script.js"></script>
+	<script src="/YasMan/YasManView/script.js"></script>
 <!-- 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/popper.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
 	<script src="assets/js/main.js"></script> -->
-	 <script>
-		$('#sendPhoneNumber').click(function(){
-			let member_tel = $('#member_tel').val();
-			Swal.fire('인증번호 발송 완료!');
-			
-			$.ajax({
-				type: "GET",
-				url: "/PhoneCheckHandler/sendSMS",
-				data: {
-					"member_tel" : member_tel
-				},
-				success : function(res){
-					$('#phoneCheck').click(function(){
-						if($.trim(res) == $('#inputCertifiedNumber').val()){
-							Swal.fire(
-								'인증성고우',
-								'휴대폰 인증이 정상적으로 완료되었습니다.',
-								'success'
-							)
-							
-							$.ajax({
-								type: "GET",
-								url: "/MessageService",
-								data: {
-									"member_tel" : $('#member_tel').val()
-								}
-							})
-							
-						} else {
-							Swal.fire({
-								icon: 'error',
-								title: '인증오류',
-								text: '인증번호가 올바르지 않습니다!',
-								footer: '다음에 인증하기'
-							})
-						}
-					})
-				}
-			});
-			
-		});
-	</script>
 	<script type="text/javascript">
 		// polyfill for RegExp.escape
- 		if (!RegExp.escape) {
+		if (!RegExp.escape) {
 			RegExp.escape = function (s) {
 				return String(s).replace(/[\\^$*+?.()|[\]{}]/g, '\\$&');
 			};

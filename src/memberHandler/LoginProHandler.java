@@ -10,8 +10,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import member.MemberLogonDBBean;
 import member.MemberLogonDao;
+import member.MemberLogonDataBean;
 
-//@Controller
+@Controller
 public class LoginProHandler implements CommandHandler{
 	
 	@Resource
@@ -31,7 +32,6 @@ public class LoginProHandler implements CommandHandler{
 		   
 		   request.setAttribute("result", result);
 		   request.setAttribute("id", id);
-		   
 		
 		return new ModelAndView("loginPro");
 	}

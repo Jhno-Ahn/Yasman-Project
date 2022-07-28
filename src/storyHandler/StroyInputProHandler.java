@@ -35,7 +35,7 @@ public class StroyInputProHandler implements CommandHandler{
 		
 		
 		request.setAttribute("result", result);
-		request.setAttribute("story_member_id", request.getParameter("story_member_id"));
+		//request.setAttribute("story_member_id", request.getParameter("story_member_id"));
 		
 		return new ModelAndView("storyInputPro");
 	}

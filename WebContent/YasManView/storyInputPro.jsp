@@ -16,7 +16,7 @@
 	<meta http-equiv="refresh" content="0; url=storyInputForm.do">
 </c:if>
 <c:if test="${result != 0}">
-	<c:redirect url="storyList.do">
-		<c:param name = "story_member_id" value = "${requestScope.stroy_member_id}"/>
-	</c:redirect>	
+	<c:redirect url="storyList.do"/>
+		<%-- <c:param name = "story_member_id" value = "${requestScope.stroy_member_id}"/>
+	</c:redirect>	 --%>
 </c:if>	

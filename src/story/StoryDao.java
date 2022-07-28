@@ -5,10 +5,10 @@ import java.util.Map;
 
 public interface StoryDao {
 	public int getCount();
-	public List<StoryDataBean> getArticles(Map<String, String> map);
+	public List<StoryDataBean> getList(Map<String, Integer> map);
 	public int insertArticles(StoryDataBean dto);
-	public StoryDataBean getArticles(int story_num);
+	public StoryDataBean getArticle(String story_member_id);
 	public void addCount(int story_num);
-	public int check(int story_num);
-	public int deleteArticles(int story_num);
+	public int check(String story_member_id);
+	public int deleteArticles(String story_num);
 }

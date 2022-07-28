@@ -1,4 +1,4 @@
-package memberHandler;
+package boardHandler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,11 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class MemberInputFormHandler implements CommandHandler{
-	@RequestMapping("/memberInputForm")
+public class MatchInputFormHandler implements CommandHandler{
+	@RequestMapping("/matchInputForm")
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse respones) throws Throwable {
-		return new ModelAndView("memberInputForm");
+		// TODO Auto-generated method stub
+		return new ModelAndView("matchInputForm");
 	}
 	
 	

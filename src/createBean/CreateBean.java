@@ -9,6 +9,8 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
+import board.StardiBoardDBBean;
+import board.StardiBoardDao;
 import member.MemberLogonDBBean;
 import member.MemberLogonDao;
 import story.StoryDBBean;
@@ -25,6 +27,11 @@ public class CreateBean {
 	@Bean
 	public StoryDao storyDao() {
 		return new StoryDBBean();
+	}
+	
+	@Bean
+	public StardiBoardDao stardiboardDao() {
+		return new StardiBoardDBBean();
 	}
 	
 	@Bean

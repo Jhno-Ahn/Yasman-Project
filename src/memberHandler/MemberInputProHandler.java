@@ -23,7 +23,7 @@ public class MemberInputProHandler implements CommandHandler{
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse respones) throws Throwable {
 		
-		request.setCharacterEncoding("utf-8");
+request.setCharacterEncoding("utf-8");
 		
 		MemberLogonDataBean dto = new MemberLogonDataBean();
 		dto.setId(request.getParameter("id"));

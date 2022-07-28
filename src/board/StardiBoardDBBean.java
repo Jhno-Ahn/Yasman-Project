@@ -1,5 +1,5 @@
 package board;
 
-public class StardiBoardDBBean {
+public class StardiBoardDBBean implements StardiBoardDao{
 
 }

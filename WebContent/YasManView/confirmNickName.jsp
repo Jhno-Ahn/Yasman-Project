@@ -4,7 +4,7 @@
     
 <%@ include file="setting.jsp"%>
 <link type="text/css" rel="stylesheet" href="/YasMan/YasMember/memberInputForm.css">
-<script src="/YasMan/YasMember/script.js"></script>
+<script src="/YasMan/YasManView/script.js"></script>
 <section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center ">

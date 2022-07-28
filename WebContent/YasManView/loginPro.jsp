@@ -2,19 +2,29 @@
 <%@page import="java.sql.Timestamp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-
-<script src="/YasMan/member/script.js"></script>
+<%@ include file="setting.jsp"%>
+<script src="/YasMan/YasManView/script.js"></script>
 
 	<h2>${page_input}</h2>
-
-	<c:if test = "${result eq 0}">
-		<script type="text/javascript">
-			<!--
-			erroralert(inputerror);
-			//-->
-		</script>
-	</c:if>
-	<c:if test = "${result ne 0}">
-		<c:redirect url = "loginForm.do"/>
-	</c:if>
+	
+	 <c:if test="${result eq -1 }">
+    <script type="text/javascript">
+       <!--
+       erroralert( iderror )
+       //-->
+    </script>
+    </c:if>
+    <c:if test="${result eq 0 }">
+     
+      <script type="text/javascript">
+         <!--
+         erroralert( passwderror )
+         //-->
+      </script>
+     </c:if>
+    <c:if test="${result eq 1}">
+	    ${sessionScope.memId = id}
+	    <c:redirect url="main.do">
+	    	<c:param name = "id" value = "${requestScope.id}"/>
+	    </c:redirect>   
+     </c:if>

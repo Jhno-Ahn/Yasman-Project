@@ -13,17 +13,20 @@ import mybatis.SqlMapClient;
 
 public class MemberLogonDBBean implements MemberLogonDao{
 	
-	
 	public int insertMember(MemberLogonDataBean dto) {
 			return SqlMapClient.getSession().insert("YasMember.insertMember", dto);
+	}
+	
+	public String getNickName(String id) {
+		return SqlMapClient.getSession().selectOne("YasMember.getNickName", id);
 	}
 	
 	public int checkId(String id) {
 		return SqlMapClient.getSession().selectOne("YasMember.checkId", id);
 	}
 	
-	public int checkNickName(String nick_name) {
-		return SqlMapClient.getSession().selectOne("YasMember.checkNickName", nick_name);
+	public int checkNickName(String id) {
+		return SqlMapClient.getSession().selectOne("YasMember.checkNickName", id);
 	}
 	
 	public int check(String id, String passwd) {

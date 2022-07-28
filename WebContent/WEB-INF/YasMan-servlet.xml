@@ -18,7 +18,11 @@
 
      <context:component-scan base-package="member"/>
      <context:component-scan base-package="memberHandler"/>
-      <context:component-scan base-package="createBean"/>
+     
+     <context:component-scan base-package="board"/>
+     <context:component-scan base-package="boardHandler"/>
+     
+     <context:component-scan base-package="createBean"/>
      
      
 </beans>

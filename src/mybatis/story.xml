@@ -4,14 +4,17 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Story">
+
 	<select id="getCount" resultType="int">
 		select count(*) from yas_story_board
 	</select>
 	
-<!-- 	<select id="getArticles" parameterType="java.util.Map" resultType="story.BoardDataBean"> 
 	
+	<select id="getArticle" parameterType="String" resultType="story.StoryDataBean"> 
+		select story_member_id from yas_story_board where story_num = #{story_num};
 	</select>
  
+ 	<!-- 
 	<select id="maxNum" resultType="int">
 		select max(num) from board
 	</select>
@@ -24,8 +27,8 @@
 		insert into yas_story_board( story_num, story_title, story_member_id) values (yas_story_num.NEXTVAL, #{story_title}, #{story_member_id})
 	</insert>
 	
-	<select id="getArticles" parameterType="int" resultType="story.StoryDataBean">
-		select * from yas_story_board where story_num=#{story_num}	
+	<select id="getList" parameterType="int" resultType="story.StoryDataBean">
+		select * from yas_story_board order by story_num desc
 	</select>
 	
 	<!-- <update id="addCount" parameterType="int">
@@ -49,10 +52,10 @@
 		update board set re_step=re_step-1 where ref = #{ref} and re_step &gt; #{re_step}
 	</update>
 	
-	<delete id="deleteArticle" parameterType="int">
-		delete from board where num = #{num}	
-	</delete>
 	 -->
+	<delete id="deleteArticles" parameterType="String">
+		delete from yas_story_board where story_member_id = #{story_member_id}	
+	</delete>
 </mapper>  
 
 

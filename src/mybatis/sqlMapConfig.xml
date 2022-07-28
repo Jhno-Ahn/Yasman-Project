@@ -29,6 +29,7 @@
   	<mappers>
   		<mapper resource="mybatis/member.xml"/>
   		<mapper resource="mybatis/story.xml"/>
+  		<mapper resource="mybatis/stardiBoard.xml"/>
   	</mappers>
   	
   </configuration>

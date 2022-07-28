@@ -17,12 +17,15 @@
  		select count(*) from yas_member where nick_name = #{nick_name}
  	</select>
  	
- 	 
- 	 <!-- 
- 	<select id = "getMember" parameterType = "String" resultType = "member.LogonDataBean">
- 		select * from member where id = #{id}
+ 	<select id = "getNickName" parameterType = "String" resultType = "String">
+ 		select nick_name from yas_member where id = #{id}
  	</select>
- 	 -->
+ 	 
+ 	  
+ 	<select id = "getMember" parameterType = "String" resultType = "member.MemberLogonDataBean">
+ 		select * from yas_member where id = #{id}
+ 	</select>
+ 	 
  
  	<insert id = "insertMember" parameterType = "member.MemberLogonDataBean">
  		insert into yas_member(member_num, id, member_name, nick_name, passwd, member_tel, reg_num, member_reg_date) 

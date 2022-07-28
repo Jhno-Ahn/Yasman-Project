@@ -12,8 +12,8 @@ public class StoryDBBean implements StoryDao {
 	}
 
 	@Override
-	public List<StoryDataBean> getArticles(Map<String, String> map) {
-		return SqlMapClient.getSession().selectList("Story.getArticles",map);
+	public List<StoryDataBean> getList(Map<String, Integer> map) {
+		return SqlMapClient.getSession().selectList("Story.getList");
 	}
 
 	@Override
@@ -22,8 +22,8 @@ public class StoryDBBean implements StoryDao {
 	}
 
 	@Override
-	public StoryDataBean getArticles(int yas_Num) {
-		return null;
+	public StoryDataBean getArticle(String story_member_id) {
+		return SqlMapClient.getSession().selectOne("Story.getArticle", story_member_id);
 	}
 
 	@Override
@@ -31,12 +31,20 @@ public class StoryDBBean implements StoryDao {
 	}
 
 	@Override
-	public int check(int yas_Num) {
-		return 0;
+	public int check(String story_member_id) {
+		StoryDataBean dto = getArticle(story_member_id);
+		int result = 0;
+		if(dto.getStory_member_id().equals(story_member_id)) {
+			result = 1;
+		} else {
+			result = 0;
+		}
+		return result;
 	}
 
 	@Override
-	public int deleteArticles(int story_num) {
-		return 0;
+	public int deleteArticles(String story_num) {
+		
+		return SqlMapClient.getSession().delete("Story.deleteArticles", story_num);
 	}
 }

@@ -17,7 +17,12 @@ var iderror = "입력하신 아이디가 없습니다. \n 다시 확인하세요
 var passwderror = "입력하신 비밀번호가 다릅니다. \n 다시 확인하세요";
 var deleteerror = "회원 탈퇴에 실패했습니다. \n 잠시후 다시 시도해 주세요";
 var modifyerror = "회원정보수정에 실패했습니다. \n 잠시후 다시 시도해 주세요";
-	
+
+
+function id_pass() {
+	request.setAttribute("id", id);
+}
+
 function erroralert(msg) {
 	alert(msg);
 	history.back();
@@ -183,3 +188,9 @@ function maincheck() {
 		return false;
 	}
 }
+
+// ===================================================================================
+
+
+
+

@@ -1,42 +1,36 @@
-<%@page import="story.StoryDataBean" %>
-<%@page import="story.StoryDBBean" %>
-<%@page import="story.StoryDao" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-    
-<!DOCTYPE html>
-<html>
+
+    <!DOCTYPE html>
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-   	<!-- script -->
-   	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-   	<!-- 맨 위로 올리는 script -->
-  	<script src="/YasMan/YasManView/assets/js/topUp.js"></script> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Webpixels">
+    <title>Match Form</title>
+    <!-- script -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- 맨 위로 올리는 script -->
+    <script src="/YasMan/YasManView/assets/js/topUp.js"></script>
     <!-- CSS -->
     <!-- Favicon -->
-    <link href="/YasMan/YasManView/assets/css/chunk.css" rel="stylesheet">
     <link rel="stylesheet" href="/YasMan/YasManView/assets/libs/@fortawesome/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="/YasMan/YasManView/assets/css/quick-website.css" id="stylesheet">
     <link rel="stylesheet" href="/YasMan/YasManView/assets/css/index.css">
-    <link rel="icon" href="/YasMan/YasManView/assets/img/yasman/YasmanLogoBlack.png" type="image/png">
+    <link rel="icon" href="/YasMan/assets/img/yasman/YasmanLogoBlack.png" type="image/png">
     <!-- Preloader -->
     <link href="/YasMan/YasManView/assets/css/preloader.css" rel="stylesheet">
 </head>
+
 <body>
- 	<div class="preloader">
-        <div class="spinner-border text-primary" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark-dark">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container">
             <!-- Brand -->
             <a class="navbar-brand" href="main.do">
-                <img alt="Image placeholder" src="assets/img/yasman/YasmanLogoBlack.png" style="height: 120px" ; id="navbar-logo">
+                <img alt="Image placeholder" src="/YasMan/Images/yasLogo.png" style="height: 120px" id="navbar-logo">
             </a>
             <!-- Toggler -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
@@ -68,89 +62,77 @@
             </div>
         </div>
     </nav>
+
     <!-- Main content -->
-    <section class="slice slice-lg pb-5">
-        <div class="container">
-            <!-- Section title -->
-            <div class="row mb-10 justify-content-center text-center">
-                <div class="col-lg-5 col-md-10">
-                    <div class="circle"></div>
-                    <div class="text"><big><big>Yas - Story<br>
-                    <small>당신의 스포츠를 공유하세요! 👟</small></big></big></div>
+    <section class="slice slice-lg" id="sct-form-contact">
+        <div class="container position-relative zindex-100">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-6 text-center">
+                    <h3>경기 정보 입력</h3>
+                    <p class="lh-190">경기 정보를 입력해 글 작성을 완료하세요! </p>
                 </div>
             </div>
-            
-            <!-- 로그인 했을때만 보이게  -->      
-            <div class="row ml-3">
-            	<button type="button" class="btn btn-lg" 
-                    style="background-color:  rgb(156, 218, 243); border-style: none;">
-                    <a style="color: white;" href="storyInputForm.do">스토리 작성</a>
-                </button>
-            </div>
-            <br>
-            <!--  -->
-            <div class="row">
-            	<c:forEach items="${dtos}" var="dtos">
-                 <div class="col-lg-4">
-                    <div class="card text-center">
-                        <div class="px-5 pb-5 pt-5" style="padding: 0;">
-                            <br>
-                            <input type="hidden" name="story_num" readonly value="${dtos.story_num}">
-                       		<input type="text" name="story_member_id" readonly value="${dtos.story_member_id }">
-                            <h3 class="story_title">${dtos.story_title}</h3>
-                            <br>
-                            <hr style="border: solid 1px; margin: 0;">
-                            <br>
-                            <div class="py-4">
-                                <ul style="list-style: none; padding-left: 0;">
-                                    <li class="img">
-                                        <div>
-                                        <img src="assets/img/yasman/time.png" width="30px" height="30px">
-                                        </div>
-                                    </li>
-                                   <!--  <li class="writer">
-                                        <div>
-                                            <h5>킬리언 음바페</h5>
-                                        </div>
-                                    </li>
-                                    <li class="content">
-                                        <div>
-                                            <h5>풋살 경기 찰칵</h5>
-                                        </div>
-                                    </li> -->
-                                    <c:if test="${story_member_id == id }">  
-									<button type="button" class="btn btn-lg" 
-										style="background-color: rgb(156, 218, 243); border-style: none;">
-										<a href="storyDeleteForm.do">삭제</a>
-									</button>
-                                  
-									 </c:if>
-                                </ul>
-                            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <!-- Form -->
+                    <form>
+                        <div class="form-group">
+                            <h5>종목 선택</h5>
+                            <select class="form-control" id="menu" name="menu" required>
+                                <option value="" disabled selected>종목</option>
+                                <option value="boong">풋살</option>
+                                <option value="tako">농구</option>
+                            </select>
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <h5>구장 선택</h5>
+                            <select class="form-control" id="menu" name="menu" required>
+                                <option value="" disabled selected>구장</option>
+                                <option value="boong">서경대 풋살파크</option>
+                                <option value="tako">도봉산 구민운동장</option>
+                                <option value="ddang">양주 풋살파크</option>
+                                <option value="other">강북 생활 농구센터</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <h5>성별 선택</h5>
+                            <select class="form-control" id="menu" name="menu" required>
+                                <option value="" disabled selected>성별</option>
+                                <option value="boong">남자</option>
+                                <option value="tako">여자</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <h5>날짜 선택</h5>
+                            <input class="form-control form-control-lg" type="datetime-local">
+                        </div>
+
+                        <div class="form-group">
+                            <h5>구장 안내</h5>
+                            <textarea class="form-control form-control-lg" placeholder="Message ..." rows="10"
+                                required></textarea>
+                        </div>
+
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-block btn-lg btn-primary mt-4"
+                                style="background-color:  sky-blue; border-style: none;">
+                                글 작성 완료
+                            </button>
+                        </div>
+                        <div>
+                            <button type="reset" class="btn btn-block btn-lg btn-primary mt-4"
+                                style="background-color:  sky-blue; border-style: none;">
+                                <a style="color: white;" href="football.html">돌아가기</a>
+                            </button>
+                        </div>
+                    </form>
                 </div>
-            	</c:forEach>
             </div>
-			<div>
-				<c:if test="${count gt 0}">
-					<c:if test="${startPage gt pageBlock}">
-						<a href="storyList.do?pageNum=${startPage - pageBlock}">[◀]</a>
-					</c:if>
-					<c:forEach var="i" begin="${startPage}" end="${endPage}">
-						<c:if test="${i == currentPage}">
-							<b>[${i}]</b>
-						</c:if>
-						<c:if test="${i != currentPage}">
-							<a href="storyList.do?pageNum=${i}">[${i}]</a>
-						</c:if>
-					</c:forEach>
-					<c:if test="${pageCount gt endPage}">
-						<a href="storyList.do?pageNum=${startPage + pageBlock}">[▶]</a>
-					</c:if>
-				</c:if>
-			</div>
-			<footer class="position-relative" id="footer-main">
+        </div>
+    </section>
+    <footer class="position-relative" id="footer-main">
         <div class="footer pt-lg-7">
             <!-- SVG shape -->
             <!-- Footer -->
@@ -159,7 +141,7 @@
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <!-- Theme's logo -->
                         <a href="index.html">
-                            <img alt="Image placeholder" src="assets/img/yasman/YasmanLogoBlack.png" id="footer-logo"
+                            <img alt="Image placeholder" src="/YasMan/assets/img/yasman/YasmanLogoBlack.png" id="footer-logo"
                                 style="height: 80px;">
                         </a>
                         <!-- Webpixels' mission -->
@@ -190,7 +172,7 @@
                     </div>
                     <div class="col-lg-2 col-6 col-sm-4 ml-lg-auto mb-5 mb-lg-0">
                         <h6 class="heading mb-3">계정</h6>
-                        <ul class="list-unstyled">
+                        <ul class="list-unstyled" >
                             <li><a href="#">프로필</a></li>
                             <li><a href="#">설정</a></li>
                             <li><a href="#">구매정보</a></li>
@@ -247,19 +229,19 @@
         </div>
     </footer>
 
+   
     <!-- Core JS  -->
     <script src="/YasMan/YasManView/assets/libs/jquery/dist/jquery.min.js"></script>
     <script src="/YasMan/YasManView/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/YasMan/YasManView/assets/libs/svg-injector/dist/svg-injector.min.js"></script>
     <script src="/YasMan/YasManView/assets/libs/feather-icons/dist/feather.min.js"></script>
+    <!-- Page JS -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1oALsXLX-XEh2iYbE8tOjxsdFNHE39WM"></script>
     <!-- Quick JS -->
     <script src="/YasMan/YasManView/assets/js/quick-website.js"></script>
-    <script>
-        $(".hover").mouseleave(
-            function () {
-                $(this).removeClass("hover");
-            }
-        );
-    </script>
+    <a href="#" id="TopButton"><img src="/YasMan/assets/img/icon/topbutton.jpg" style="width: 45px;"></a>
+    <div id="chatbot" onclick="chatbot()"><img src="/YasMan/assets/img/icon/chatbot.png" style="width: 45px;"></div>
+
 </body>
+
 </html>

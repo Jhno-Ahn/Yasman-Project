@@ -17,13 +17,13 @@
   	<script src="/YasMan/YasManView/assets/js/topUp.js"></script> 
     <!-- CSS -->
     <!-- Favicon -->
-    <link href="/YasMan/YasManView/assets/css/chunk.css" rel="stylesheet">
-    <link rel="stylesheet" href="/YasMan/YasManView/assets/libs/@fortawesome/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="/YasMan/YasManView/assets/css/quick-website.css" id="stylesheet">
-    <link rel="stylesheet" href="/YasMan/YasManView/assets/css/index.css">
-    <link rel="icon" href="/YasMan/YasManView/assets/img/yasman/YasmanLogoBlack.png" type="image/png">
+    <link href="./YasManView/assets/css/chunk.css" rel="stylesheet">
+    <link rel="stylesheet" href="./YasManView/assets/libs/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="./YasManView/assets/css/quick-website.css" id="stylesheet">
+    <link rel="stylesheet" href="./YasManView/assets/css/index.css">
+    <link rel="icon" href="./YasManView/assets/img/yasman/YasmanLogoBlack.png" type="image/png">
     <!-- Preloader -->
-    <link href="/YasMan/YasManView/assets/css/preloader.css" rel="stylesheet">
+    <link href="./YasManView/assets/css/preloader.css" rel="stylesheet">
 </head>
 <body>
  	<div class="preloader">
@@ -36,7 +36,7 @@
         <div class="container">
             <!-- Brand -->
             <a class="navbar-brand" href="main.do">
-                <img alt="Image placeholder" src="assets/img/yasman/YasmanLogoBlack.png" style="height: 120px" ; id="navbar-logo">
+                <img alt="Image placeholder" src="./YasManView/assets/img/yasman/YasmanLogoBlack.png" style="height: 120px" ; id="navbar-logo">
             </a>
             <!-- Toggler -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
@@ -96,37 +96,17 @@
                         <div class="px-5 pb-5 pt-5" style="padding: 0;">
                             <br>
                             <input type="hidden" name="story_num" readonly value="${dtos.story_num}">
-                       		<input type="text" name="story_member_id" readonly value="${dtos.story_member_id }">
+                            <h5 class="story_member_id">${dtos.story_member_id }</h5>
                             <h3 class="story_title">${dtos.story_title}</h3>
                             <br>
                             <hr style="border: solid 1px; margin: 0;">
                             <br>
-                            <div class="py-4">
-                                <ul style="list-style: none; padding-left: 0;">
-                                    <li class="img">
-                                        <div>
-                                        <img src="assets/img/yasman/time.png" width="30px" height="30px">
-                                        </div>
-                                    </li>
-                                   <!--  <li class="writer">
-                                        <div>
-                                            <h5>킬리언 음바페</h5>
-                                        </div>
-                                    </li>
-                                    <li class="content">
-                                        <div>
-                                            <h5>풋살 경기 찰칵</h5>
-                                        </div>
-                                    </li> -->
-                                    <c:if test="${story_member_id == id }">  
-									<button type="button" class="btn btn-lg" 
-										style="background-color: rgb(156, 218, 243); border-style: none;">
-										<a href="storyDeleteForm.do">삭제</a>
-									</button>
-                                  
-									 </c:if>
-                                </ul>
+                            <div>
+                               <img src="./YasManView/assets/img/yasman/Bleus.jpg" width="100%" height="100%">
                             </div>
+                             <button type="button" class="btn">
+                                	<a href="storyDeletePro.do?story_num=${dtos.story_num }">삭제</a>
+                             </button>
                         </div>
                     </div>
                 </div>
@@ -159,7 +139,7 @@
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <!-- Theme's logo -->
                         <a href="index.html">
-                            <img alt="Image placeholder" src="assets/img/yasman/YasmanLogoBlack.png" id="footer-logo"
+                            <img alt="Image placeholder" src="./YasManView/assets/img/yasman/YasmanLogoBlack.png" id="footer-logo"
                                 style="height: 80px;">
                         </a>
                         <!-- Webpixels' mission -->
@@ -248,12 +228,12 @@
     </footer>
 
     <!-- Core JS  -->
-    <script src="/YasMan/YasManView/assets/libs/jquery/dist/jquery.min.js"></script>
-    <script src="/YasMan/YasManView/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/YasMan/YasManView/assets/libs/svg-injector/dist/svg-injector.min.js"></script>
-    <script src="/YasMan/YasManView/assets/libs/feather-icons/dist/feather.min.js"></script>
+    <script src="./YasManView/assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="./YasManView/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./YasManView/assets/libs/svg-injector/dist/svg-injector.min.js"></script>
+    <script src="./YasManView/assets/libs/feather-icons/dist/feather.min.js"></script>
     <!-- Quick JS -->
-    <script src="/YasMan/YasManView/assets/js/quick-website.js"></script>
+    <script src="./YasManView/assets/js/quick-website.js"></script>
     <script>
         $(".hover").mouseleave(
             function () {

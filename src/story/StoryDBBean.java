@@ -13,7 +13,7 @@ public class StoryDBBean implements StoryDao {
 
 	@Override
 	public List<StoryDataBean> getList(Map<String, Integer> map) {
-		return SqlMapClient.getSession().selectList("Story.getList");
+		return SqlMapClient.getSession().selectList("Story.getList", map);
 	}
 
 	@Override
@@ -22,28 +22,28 @@ public class StoryDBBean implements StoryDao {
 	}
 
 	@Override
-	public StoryDataBean getArticle(String story_member_id) {
-		return SqlMapClient.getSession().selectOne("Story.getArticle", story_member_id);
+	public StoryDataBean getArticle(int story_num) {
+		return SqlMapClient.getSession().selectOne("Story.getArticle", story_num);
 	}
 
 	@Override
 	public void addCount(int yas_Num) {
 	}
 
-	@Override
-	public int check(String story_member_id) {
-		StoryDataBean dto = getArticle(story_member_id);
-		int result = 0;
-		if(dto.getStory_member_id().equals(story_member_id)) {
-			result = 1;
-		} else {
-			result = 0;
-		}
-		return result;
-	}
+	//@Override
+	//public int check(int story_num, String story_member_id) {
+	//	StoryDataBean dto = getArticle(story_num);
+	//	int result = 0;
+	//	if(dto.getStory_member_id().equals(story_member_id)) {
+	//		result = 1;
+	//	} else {
+	//		result = 0;
+	//	}
+	//	return result;
+	//}
 
 	@Override
-	public int deleteArticles(String story_num) {
+	public int deleteArticles(int story_num) {
 		
 		return SqlMapClient.getSession().delete("Story.deleteArticles", story_num);
 	}

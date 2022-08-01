@@ -6,6 +6,16 @@ public class StoryDataBean {
 	private String story_title;
 	private String story_writer;
 	private String story_content;
+	private String story_img;
+	
+	
+	
+	public String getStory_img() {
+		return story_img;
+	}
+	public void setStory_img(String story_img) {
+		this.story_img = story_img;
+	}
 	public int getStory_num() {
 		return story_num;
 	}

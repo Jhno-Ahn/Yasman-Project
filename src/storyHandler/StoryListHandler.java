@@ -1,6 +1,5 @@
 package storyHandler;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,7 +28,7 @@ public class StoryListHandler implements CommandHandler{
 		
 		request.setCharacterEncoding("utf-8");
 		
-		int pageSize = 10;
+		int pageSize = 9;
 		int pageBlock = 3;
 
 		int count = 0;
@@ -72,30 +71,18 @@ public class StoryListHandler implements CommandHandler{
 		request.setAttribute( "pageCount", pageCount );
 		request.setAttribute( "pageNum", pageNum );
 		
-		/*
-		 * StoryDataBean dto = new StoryDataBean();
-		 * dto.setStory_num(Integer.parseInt(request.getParameter("story_num")));
-		 * dto.setStory_title(request.getParameter("story_title"));
-		 * dto.setStory_member_id(request.getParameter("story_member_id"));
-		 */
-		/*
-		 * String story_num = null; String story_title = null; String story_member_id =
-		 * null;
-		 * 
-		 * 
-		 * Map<String, String> map = new HashMap<String, String>(); map.put("story_num",
-		 * story_num); map.put("story_title", story_title); map.put("story_member_id",
-		 * story_member_id);
-		 * 
-		 * List<StoryDataBean> dtos = storyDao.getArticles(map);
-		 * request.setAttribute("dtos", dtos);
-		 */
-		
-		Map<String , Integer> map = new HashMap<String, Integer>();
-		
-		List<StoryDataBean> dtos = new ArrayList<StoryDataBean>();
-			dtos = this.storyDao.getList(map);
+		if(count !=0) {
+			
+			Map<String , Integer> map = new HashMap<String, Integer>();
+			map.put("start", start);
+			map.put("end",end);
+			
+			//List<StoryDataBean> dtos = new ArrayList<StoryDataBean>();
+			List<StoryDataBean> dtos = storyDao.getList(map);
+			//dtos = this.storyDao.getList(map);
 			request.setAttribute("dtos", dtos);
+			
+		}
 			
 		
 		return new ModelAndView("storyList");

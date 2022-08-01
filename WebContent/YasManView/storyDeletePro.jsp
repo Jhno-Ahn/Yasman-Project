@@ -7,22 +7,22 @@
 
 <c:if test="${resultCheck == 0}">
 	<script type="text/javascript">
-		<!--
-		erroralert( "안되 다시해" );
-		//-->
+		
+		alert( "아이디 틀림" );
+		
 	</script>
 </c:if>
 <c:if test="${resultCheck != 0}">
 	<c:if test="${result == 0}">
 		<script type="text/javascript">
-			<!--
+			
 			alert( "어ㅏㄴ대 다시해" );
-			//-->				
+							
 		</script>
-		<meta http-equiv="refresh" content="0; url=storyList.do?pageNum=${pageNum}">
+		<meta http-equiv="refresh" content="0; url=storyList.do">
 	</c:if>
 	<c:if test="${result != 0}">
-		<c:redirect url="storyList.do?pageNum=${pageNum}"/>
+		<c:redirect url="storyList.do"/>
 	</c:if>
 </c:if>
 

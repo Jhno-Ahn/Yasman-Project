@@ -10,7 +10,7 @@
 	</select>
 	
 	
-	<select id="getArticle" parameterType="String" resultType="story.StoryDataBean"> 
+	<select id="getArticle" parameterType="int" resultType="story.StoryDataBean"> 
 		select story_member_id from yas_story_board where story_num = #{story_num};
 	</select>
  
@@ -24,11 +24,17 @@
 	</update> -->
 
 	<insert id="insertArticles" parameterType="story.StoryDataBean">
-		insert into yas_story_board( story_num, story_title, story_member_id) values (yas_story_num.NEXTVAL, #{story_title}, #{story_member_id})
+		insert into yas_story_board( story_num, story_title, story_member_id, story_img)
+		 values (yas_story_num.NEXTVAL, #{story_title}, #{story_member_id}, #{story_img,jdbcType=VARCHAR} )
 	</insert>
 	
-	<select id="getList" parameterType="int" resultType="story.StoryDataBean">
-		select * from yas_story_board order by story_num desc
+	<select id="getList" parameterType="java.util.Map" resultType="story.StoryDataBean">
+		<!-- select * from yas_story_board order by story_num desc -->
+		select * from (
+			select a.*, ROWNUM as r from(
+				select * from yas_story_board order by story_num desc
+			)
+		a) where r &gt;= #{start}  and r &lt;= #{end}
 	</select>
 	
 	<!-- <update id="addCount" parameterType="int">
@@ -53,8 +59,8 @@
 	</update>
 	
 	 -->
-	<delete id="deleteArticles" parameterType="String">
-		delete from yas_story_board where story_member_id = #{story_member_id}	
+	<delete id="deleteArticles" parameterType="int">
+		delete from yas_story_board where story_num = #{story_num}	
 	</delete>
 </mapper>  
 

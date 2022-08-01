@@ -18,17 +18,27 @@ public class StoryDeleteProHandler implements CommandHandler{
 	@RequestMapping("/storyDeletePro")
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-
-		String story_num = request.getParameter("story_num");
 		
-		int resultCheck = storyDao.check(story_num);
+		// 삭제 (story_num 값만 받아서 story_num값 해당하는 녀석 삭제)
+		int story_num = Integer.parseInt(request.getParameter("story_num"));
+		int result = storyDao.deleteArticles(story_num);
+		request.setAttribute("result", result);
 		
-		request.setAttribute("resultCheck", resultCheck);
 		
-		if(resultCheck !=0) {
-			int result = storyDao.deleteArticles(story_num);
-			request.setAttribute("result", result);
-		}
+		
+		//String story_member_id = (request.getParameter("story_member_id"));
+		
+		//int resultCheck = storyDao.check(story_num, story_member_id);
+		
+		//request.setAttribute("resultCheck", resultCheck);
+		
+		//if(resultCheck !=0) {
+		//	int result = storyDao.deleteArticles(story_num);
+		//	request.setAttribute("result", result);
+		//}
+		
+		
+		
 		
 		return new ModelAndView("storyDeletePro");
 	}

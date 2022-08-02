@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 빈들(객체들) -->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
    xmlns:p="http://www.springframework.org/schema/p"
@@ -28,21 +27,7 @@
      
      <context:component-scan base-package="createBean"/>
      
-     <context:component-scan base-package="com.yasman.utils"/>
 
-	
-     
-	<!-- 업로드 패스 설정 --> 
-	<beans:bean class="java.lang.String" id="uploadPath">
-	 <beans:constructor-arg value="C:\AI\Workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\YasMan\" />
-	</beans:bean>
-	
-	<!-- 일반 파일 업로드 경로 -->
-	<resources mapping="/imgUpload/**" location="/resources/imgUpload/" />
-	
-	<beans:bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
-	 <beans:property name="maxUploadSize" value="10485760"/>
-	</beans:bean>
 </beans>
 
 

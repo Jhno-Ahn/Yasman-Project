@@ -96,7 +96,7 @@
                         </div>
 						<div class="inputArea">
 							<label for="gdsImg">이미지</label> <input type="file" id="gdsImg"
-								name="file" />
+								name="story_img" />
 							<div class="select_img">
 								<img src="" />
 							</div>

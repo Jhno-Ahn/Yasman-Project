@@ -15,16 +15,12 @@ public class StoryInputFormHandler implements CommandHandler{
 		
 		
 		int story_num = 0;
-		int story_title = 0;
-		int story_member_id = 0;
-		//int story_writer = 0;
-		//int story_content = 0;
+		String story_og_file = null;
+
 		
 		request.setAttribute("story_num", story_num);
-		request.setAttribute("story_title", story_title);
-		request.setAttribute("story_member_id", story_member_id);
-	//	request.setAttribute("story_writer", story_writer);
-	//	request.setAttribute("story_content", story_content);
+		request.setAttribute("story_og_file", story_og_file);
+
 		 	
 		return new ModelAndView("storyInputForm");
 	}

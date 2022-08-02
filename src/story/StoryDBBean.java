@@ -3,6 +3,8 @@ package story;
 import java.util.List;
 import java.util.Map;
 
+import com.oreilly.servlet.MultipartRequest;
+
 import mybatis.SqlMapClient;
 
 public class StoryDBBean implements StoryDao {
@@ -17,7 +19,7 @@ public class StoryDBBean implements StoryDao {
 	}
 
 	@Override
-	public int insertArticles(StoryDataBean dto) {
+	public int insertArticles(StoryDataBean dto, MultipartRequest multi) {
 		return SqlMapClient.getSession().insert("Story.insertArticles",dto);
 	}
 

@@ -102,7 +102,7 @@
                             <hr style="border: solid 1px; margin: 0;">
                             <br>
                             <div>
-                               <img src="./YasManView/assets/img/yasman/Bleus.jpg" width="100%" height="100%">
+                               <img src="${dtos.story_og_file}.jpg" width="100%" height="100%">
                             </div>
                              <button type="button" class="btn">
                                 	<a href="storyDeletePro.do?story_num=${dtos.story_num }">삭제</a>

@@ -8,9 +8,14 @@ public class MemberLogonDataBean {
 	private String member_name;
 	private String nick_name;
 	private String passwd;
+	private String member_addr;
 	private String member_tel;
 	private String reg_num;
 	private Timestamp member_reg_date;
+	private int my_match_num_first;
+	private int my_match_num_second;
+	private int my_match_num_third;
+	
 	
 	public int getMember_num() {
 		return member_num;
@@ -42,6 +47,12 @@ public class MemberLogonDataBean {
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;
 	}
+	public String getMember_addr() {
+		return member_addr;
+	}
+	public void setMember_addr(String member_addr) {
+		this.member_addr = member_addr;
+	}
 	public String getMember_tel() {
 		return member_tel;
 	}
@@ -59,6 +70,24 @@ public class MemberLogonDataBean {
 	}
 	public void setMember_reg_date(Timestamp member_reg_date) {
 		this.member_reg_date = member_reg_date;
+	}
+	public int getMy_match_num_first() {
+		return my_match_num_first;
+	}
+	public void setMy_match_num_first(int my_match_num_first) {
+		this.my_match_num_first = my_match_num_first;
+	}
+	public int getMy_match_num_second() {
+		return my_match_num_second;
+	}
+	public void setMy_match_num_second(int my_match_num_second) {
+		this.my_match_num_second = my_match_num_second;
+	}
+	public int getMy_match_num_third() {
+		return my_match_num_third;
+	}
+	public void setMy_match_num_third(int my_match_num_third) {
+		this.my_match_num_third = my_match_num_third;
 	}
 	
 	

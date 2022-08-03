@@ -19,7 +19,7 @@ public class StoryDBBean implements StoryDao {
 	}
 
 	@Override
-	public int insertArticles(StoryDataBean dto, MultipartRequest multi) {
+	public int insertArticles(StoryDataBean dto) {
 		return SqlMapClient.getSession().insert("Story.insertArticles",dto);
 	}
 

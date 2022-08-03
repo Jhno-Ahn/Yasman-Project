@@ -23,13 +23,17 @@ public class MemberInputProHandler implements CommandHandler{
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse respones) throws Throwable {
 		
-request.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("utf-8");
+		
+		String doro = request.getParameter("doro");
+		String jibun = request.getParameter("jibun");
 		
 		MemberLogonDataBean dto = new MemberLogonDataBean();
 		dto.setId(request.getParameter("id"));
 		dto.setMember_name(request.getParameter("member_name"));
 		dto.setNick_name(request.getParameter("nick_name"));
 		dto.setPasswd(request.getParameter("passwd"));
+		dto.setMember_addr(doro + jibun);
 		dto.setMember_tel(request.getParameter("member_tel"));
 		dto.setReg_num(request.getParameter("reg_num"));
 		dto.setMember_reg_date(new Timestamp(System.currentTimeMillis()));

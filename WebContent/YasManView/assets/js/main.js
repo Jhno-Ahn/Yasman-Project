@@ -12,5 +12,6 @@
     input.attr("type", "password");
   }
 });
+	app.use('/uploads', express.static('uploads'));
 
 })(jQuery);

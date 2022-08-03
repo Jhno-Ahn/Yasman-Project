@@ -25,7 +25,7 @@
 
 	<insert id="insertArticles" parameterType="story.StoryDataBean">
 		insert into yas_story_board( story_num, story_title, story_member_id, story_og_file)
-		 values (yas_story_num.NEXTVAL, #{story_title}, #{story_member_id}, #{story_og_file,jdbcType=VARCHAR})
+		 values (yas_story_num.NEXTVAL, #{story_title}, #{story_member_id}, #{story_og_file})
 	</insert>
 	
 	<select id="getList" parameterType="java.util.Map" resultType="story.StoryDataBean">

@@ -105,12 +105,12 @@
            <!-- =================================================로그인을  했을 때============================================ --> 
            			<c:if test = "${sessionScope.memId ne null}">
                         <div class="carousel-item active">
-                            <a href="footballStardiBoard.do">
+                            <a href="footballBoard.do">
                                 <img src="/YasMan/Images/m-foot.png" alt="First slide" width="100%" height="550px">
                             </a>
                         </div>
                         <div class="carousel-item">
-                            <a href="bascketballStardiBoard.do">
+                            <a href="basketballBoard.do">
                                 <img src="/YasMan/Images/m-basck.png" alt="Second slide" width="100%" height="550px">
                             </a>
                         </div>

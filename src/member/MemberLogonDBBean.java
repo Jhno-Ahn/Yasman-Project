@@ -3,6 +3,7 @@ package member;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -60,13 +61,39 @@ public class MemberLogonDBBean implements MemberLogonDao{
 		return SqlMapClient.getSession().selectOne("YasMember.getMember", id);
 	}
 	
+	public int applyBasketBoard(HashMap<String, Integer> map, String id) {
+		int result = 0;
+		MemberLogonDataBean confirm = confirmMyMatch_first(id);
+		if(confirm == null) {
+			return SqlMapClient.getSession().update("YasMember.applyBasketBoard_first", map);
+		} else {
+			confirm = confirmMyMatch_second(id);
+			if(confirm == null) {
+				return SqlMapClient.getSession().update("YasMember.applyBasketBoard_second", map);
+			} else {
+				confirm = confirmMyMatch_third(id);
+				if(confirm == null) {
+					return SqlMapClient.getSession().update("YasMember.applyBasketBoard_third", map);
+				} else {
+					return result;
+				}
+			}
+		}
+	}
 	
-	
+	public MemberLogonDataBean confirmMyMatch_first(String id) {
+		return SqlMapClient.getSession().selectOne("YasMember.confirmMyMatch_first");
+	}
+	public MemberLogonDataBean confirmMyMatch_second(String id) {
+		return SqlMapClient.getSession().selectOne("YasMember.confirmMyMatch_second");
+	}
+	public MemberLogonDataBean confirmMyMatch_third(String id) {
+		return SqlMapClient.getSession().selectOne("YasMember.confirmMyMatch_third");
+	}
 	
 //	public int modifyMember(MemberLogonDataBean dto) {
 //			return SqlMapClient.getSession().update("Member.modifyMember", dto);
 //	}
-	
-	
-}// class
+}
+// class
 // DAO 처리빈

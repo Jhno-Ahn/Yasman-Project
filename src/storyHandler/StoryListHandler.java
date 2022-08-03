@@ -22,7 +22,7 @@ public class StoryListHandler implements CommandHandler{
 	@Resource
 	private StoryDao storyDao;
 	
-	@RequestMapping("/storyList")
+	@RequestMapping("/story/storyList")
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		
@@ -85,7 +85,7 @@ public class StoryListHandler implements CommandHandler{
 		}
 			
 		
-		return new ModelAndView("storyList");
+		return new ModelAndView("story/storyList");
 	}
 	
 	

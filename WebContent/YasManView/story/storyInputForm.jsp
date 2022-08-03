@@ -73,6 +73,7 @@
         <div class="form-frame">
             <div class="inputForm" style="border: 2px solid grey;padding: 30px; border-radius:1%;">
                 <div id="stb_subscribe">
+                <!-- ------------------------------------------------------------------------------------------------------------------- -->
                     <form method="POST" action="storyInputPro.do" accept-charset="utf-8" class="stb_form" enctype="multipart/form-data" >
                       <!--   <div class="stb_form_set">
                             <label for="stb_name" class="stb_form_set_label" style="color: black;">글 제목</label>
@@ -95,8 +96,8 @@
                                 required></textarea>
                         </div>
 						<div class="inputArea">
-							<label for="gdsImg">이미지</label> <input type="file" id="gdsImg"
-								name="story_img" />
+							<label for="gdsImg">이미지</label>
+							 <input type="file" id="gdsImg"	name="story_img"/>
 							<div class="select_img">
 								<img src="" />
 							</div>
@@ -113,7 +114,6 @@
 								});
 							</script>
 							
-							<%=request.getRealPath("/") %>
 							
 						</div>
 						<div class="stb_form_set_submit ">
@@ -123,6 +123,8 @@
                         </div>
 
                     </form>
+         	 <!-- ------------------------------------------------------------------------------------------------------------------- -->
+                    
                 </div>
             </div>
         </div>

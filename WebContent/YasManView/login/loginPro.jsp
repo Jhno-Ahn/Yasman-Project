@@ -26,5 +26,6 @@
 	    ${sessionScope.memId = id}
 	    <c:redirect url="main.do">
 	    	<c:param name = "id" value = "${requestScope.id}"/>
+	    	<c:param name = "member_num" value = "${requestScope.member_num}"/>
 	    </c:redirect>   
      </c:if>

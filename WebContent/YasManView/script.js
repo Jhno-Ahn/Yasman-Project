@@ -9,7 +9,8 @@ var namemsg = "이름을 입력하세요.";
 var nick_namemsg = "닉네임을 입력하세요.";
 var reg_nummsg = "주민번호를 입력하세요.";
 var telmsg = "전화번호를 입력하세요.";
-var confirmmsg = "아이디 중복확인을 해주세요";
+var confirm_idmsg = "아이디 중복확인을 해주세요";
+var confirm_nick_namemsg = "닉네임 중복확인을 해주세요";
 var agreemmsg = "개인정보 제공 동의 해주세요";
 
 var inputerror = "회원가입에 실패했습니다.\n 잠시후 다시 시도하세요.";
@@ -60,7 +61,7 @@ function confirm_id() {
 	var url = "confirmId.do?id=" + inputform.id.value;
 	window.open(url, "confirm", "menubar=no, scrollbar=no, status=no, width=400, height=300");
 }
-
+//야스멘 닉네임 중복확인
 function confirm_nick_name() {
 	if(!inputform.nick_name.value){
 		alert(nick_namemsg);
@@ -70,6 +71,18 @@ function confirm_nick_name() {
 	var url = "confirmNickName.do?nick_name=" + inputform.nick_name.value;
 	window.open(url, "confirm", "menubar=no, scrollbar=no, status=no, width=400, height=300");
 }
+
+// 야스맨 농구 지원 ------------------------------------------------------------------------------------------------------------
+function applyBasketMatch_A(id, num) {
+	var url = "applyBasketMatchForm.do?id=" + id + "&match_num=" + num;
+	window.open(url, "confirm", "menubar=no, scrollbar=no, status=no, width=400, height=300");
+}
+
+function applyBasketMatch_B(id, match_num) {
+	var url = "applyBasketMatchPro.do?id=" + id + "&match_num=" + match_num;
+	window.open(url, "conform", "menubar=no, scrillbar=no, status=no, width=400, height=300");
+}
+//------------------------------------------------------------------------------------------------------------------------
 	
 // 야스멘 중복확인
 function confirmidcheck() {
@@ -81,7 +94,6 @@ function confirmidcheck() {
 }
 
 function confirmnicknamecheck() {
-	
 	if (!confirmform.nick_name.value) {
 		alert(nick_namemsg);
 		inputform.nick_name.focus();
@@ -90,51 +102,55 @@ function confirmnicknamecheck() {
 }
 
 function setid(id){
-	opener.document.inputform.checkid.value="1";
+	opener.document.inputform.id_check.value= "1";
 	opener.document.inputform.id.value = id;
 	//window.close();
 	//close();
 	self.close();
 }
 
+function setok(){
+	//window.close();
+	//close();
+	self.close();
+}
+
 function setnickname(nickname){
-	opener.document.inputform.checknickname.value="1";
+	opener.document.inputform.nick_name_check.value= "1";
 	opener.document.inputform.nick_name.value = nickname;
 	//window.close();
 	//close();
 	self.close();
 }
 
+// =============================================================  inputcheck() ==========================================================================
+
 // 야스멘  회원 가입
 function inputcheck() {
-	if( inputform.check.value == "0"){
-		alert(confirmmsg);
+	
+	
+	if( inputform.id_check.value == "0"){
+		alert(confirm_idmsg);
 		inputform.id.focus();
+		return false;
+	}
+	else if(inputform.nick_name_check.value == "0") {
+		alert(confirm_nick_namemsg);
+		inputform.nick_name.focus();
 		return false;
 	}
 	
-	if( ! inputform.id.value){
-		alert( idmsg );
-		inputform.id.focus();
+	else if( inputform.passwd.value != inputform.repasswd.value){
+		alert(repasswdmsg);
+		inputform.passwd.focus();
 		return false;
 	}
-	else if( ! inputform.name.value){
-		alert(namemsg);
-		inputform.name.focus();
+	else if(inputform.reg_num.value.lenght<13){
+		alert(reg_nummsg);
+		inputform.reg_num.focus();
 		return false;
-	}else if( ! inputform.nick_name.value){
-		alert(nick_namemsg);
-		inputform.name.focus();
-		return false;
-	}else if(! inputform.passwd.value){
-		alert(passwdmsg);
-		inputform.passwd.focus();
-		return false;
-	}else if( inputform.passwd.value != inputform.repasswd.value){
-		alert(repasswdmsg)
-		inputform.passwd.focus();
-		return false;
-	}else if(inputform.reg_num.value.lenght<13){
+	}
+	else if(inputform.passwd.value.lenght<17){
 		alert(reg_nummsg);
 		inputform.reg_num.focus();
 		return false;
@@ -143,39 +159,11 @@ function inputcheck() {
 		alert(telmsg);
 		inputform.member_tel.focus();
 		return false;
-	} else if(!inputform.agree) {
-		alert(agreemsg);
-		return false;
-	}
-	
-	}
+	} 
+}
 
+//=============================================================  inputcheck() ==========================================================================
 
-function nextjumin1() {
-	if(inputform.jumin1.value.length == 6){
-		inputform.jumin2.focus();
-	}
-}
-function nextjumin2() {
-	if(inputform.jumin2.value.length == 7){
-		inputform.tel1.focus();
-	}
-}
-function nexttel1() {
-	if(inputform.tel1.value.length == 3){
-		inputform.tel2.focus();
-	}
-}
-function nexttel2() {
-	if(inputform.tel2.value.length == 4){
-		inputform.tel3.focus();
-	}
-}
-function nexttel3() {
-	if(inputform.tel3.value.length == 4){
-		inputform.email1.focus();
-	}
-}
 // 야스멘  메인페이지
 function maincheck() {
 	if( ! mainform.id.value){
@@ -189,8 +177,5 @@ function maincheck() {
 	}
 }
 
-// ===================================================================================
-
-
-
+// ===================================================
 

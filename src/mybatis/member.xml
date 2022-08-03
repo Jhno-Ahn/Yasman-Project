@@ -26,12 +26,13 @@
  		select * from yas_member where id = #{id}
  	</select>
  	 
- 
+  
  	<insert id = "insertMember" parameterType = "member.MemberLogonDataBean">
- 		insert into yas_member(member_num, id, member_name, nick_name, passwd, member_tel, reg_num, member_reg_date) 
- 		values(yas_member_num.NEXTVAL, #{id}, #{member_name}, #{nick_name}, #{passwd}, #{member_tel}, #{reg_num}, #{member_reg_date})
+ 		insert into yas_member(member_num, id, member_name, nick_name, passwd, member_addr, member_tel, reg_num, member_reg_date
+ 		, my_match_num_first, my_match_num_second, my_match_num_third) 
+ 		values(yas_member_num.NEXTVAL, #{id}, #{member_name}, #{nick_name}, #{passwd}, #{member_addr}, #{member_tel}, #{reg_num}, #{member_reg_date},
+ 		null, null, null)
  	</insert>
- 	
  	<!-- 
  	<delete id = "deleteMember" parameterType = "String">
  		delete from member where id = #{id}
@@ -42,4 +43,51 @@
  		where id = #{id} 
  	</update>
  	 -->
+ 	 <insert id = "insertBasketBoard" parameterType = "board.BasketBoardDataBean">
+ 		insert into yas_basketmatch_board(match_num, match_kind, match_stardi_name,
+ 		 match_personnel, match_personnel_now, match_day, match_time, match_member_id_first, match_member_id_second) 
+ 		values(yas_match_num.NEXTVAL, #{match_kind}, #{match_stardi_name}, 2, 0,
+ 		 #{match_day}, #{match_time}, #{match_member_id_first, jdbcType=VARCHAR}, 
+ 		 #{match_member_id_second, jdbcType=VARCHAR})
+ 	</insert>
+ 	
+ 	<select id="getArticles" resultType="board.BasketBoardDataBean">
+		select match_kind, match_stardi_name, match_day, match_time
+			from yas_basketmatch_board
+	</select>
+	
+	<select id="selectList" parameterType = "String" resultType="board.BasketBoardDataBean">
+		select match_num, match_kind, match_stardi_name, match_day, match_time, match_personnel_now
+			from yas_basketmatch_board where match_stardi_name = #{match_stardi_name} order by match_day, match_time
+	</select>
+ 	 
+ 	<select id="contentMatch" parameterType = "Integer" resultType="board.BasketBoardDataBean">
+		select match_num, match_kind, match_stardi_name, match_day, match_time, match_personnel_now, match_personnel
+		 from yas_basketmatch_board where match_num = #{match_num}
+	</select> 
+	
+	 
+	<select id = "confirmMyMatch_first" parameterType = "String" resultType = "member.MemberLogonDataBean">
+		select my_match_num_first from yas_member where id = #{id}
+	</select>
+	
+	<select id = "confirmMyMatch_second" parameterType = "String" resultType = "member.MemberLogonDataBean">
+		select my_match_num_second from yas_member where id = #{id}
+	</select>
+	
+	<select id = "confirmMyMatch_third" parameterType = "String" resultType = "member.MemberLogonDataBean">
+		select my_match_num_third from yas_member where id = #{id}
+	</select>
+	 
+	 <update id = "applyBasketBoard_first" parameterType="java.util.Map">
+	 	update yas_member set my_match_num_first = #{member_num} where member_num = #{member_num}
+	 </update>
+	 
+	 <update id = "applyBasketBoard_second" parameterType="java.util.Map">
+	 	update yas_member set my_match_num_second = #{member_num} where member_num = #{member_num}
+	 </update>
+ 	
+ 	<update id = "applyBasketBoard_third" parameterType="java.util.Map">
+	 	update yas_member set my_match_num_third = #{member_num} where member_num = #{member_num}
+	 </update>
  </mapper>

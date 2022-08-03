@@ -1,8 +1,14 @@
 package storyHandler;
 
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.util.UUID;
 
 import javax.annotation.Resource;
+import javax.imageio.ImageIO;
+import javax.media.jai.JAI;
+import javax.media.jai.RenderedOp;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -34,24 +40,30 @@ public class StroyInputProHandler implements CommandHandler{
 		String path = "C:\\AI\\Workspace\\YasMan\\WebContent\\YasManView\\assets\\img\\yasman"; 
 		
 		
-		new File( path ).mkdir();
+		MultipartRequest multi = new MultipartRequest( request, path, 1024*1024*30, "utf-8", new DefaultFileRenamePolicy() );
 		
-		MultipartRequest multi = new MultipartRequest( request, path, 1024*1024*5, "utf-8", new DefaultFileRenamePolicy() );
+		String sysFileName = multi.getFilesystemName("story_img");
+		//String ogFileName = multi.getOriginalFileName("story_img");
+		//String ogName = path + "\\" + sysFileName;
+		//String sysName = path + "\\t" + sysFileName;
 		
-		String ogFileName = multi.getFilesystemName("story_img");
+		//sysFileName = sysFileName.substring(sysFileName.lastIndexOf("\\")+1);
 		
-		String ogName = path + "\\" + ogFileName;
+		//UUID uuid = UUID.randomUUID();
+		//sysFileName = uuid.toString() + "_" + sysFileName;
+	
+		
 		
 		
 		StoryDataBean dto = new StoryDataBean();
 		dto.setStory_num(Integer.parseInt(multi.getParameter("story_num")));
 		dto.setStory_title(multi.getParameter("story_title"));
 		dto.setStory_member_id(multi.getParameter("story_member_id"));
-		dto.setStory_og_file(ogFileName);
+		dto.setStory_og_file(sysFileName);
 		//dto.setStory_writer(request.getParameter("story_writer"));
 		//dto.setStory_content(request.getParameter("story_content"));
 		
-		int result = storyDao.insertArticles(dto, multi);
+		int result = storyDao.insertArticles(dto);
 		
 		
 		

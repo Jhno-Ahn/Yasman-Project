@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
+import member.MemberLogonDao;
+
 import com.oreilly.servlet.MultipartRequest;
 
 import story.StoryDao;
@@ -28,6 +31,8 @@ public class StroyInputProHandler implements CommandHandler{
 	@Resource
 	private StoryDao storyDao;
 	
+	@Resource
+	private MemberLogonDao logonDao;
 	
 	
 	@RequestMapping("/storyInputPro")
@@ -53,6 +58,12 @@ public class StroyInputProHandler implements CommandHandler{
 		//sysFileName = uuid.toString() + "_" + sysFileName;
 	
 		
+		if(request.getParameter("id") != null) {
+			String id = request.getParameter("id");
+			request.setAttribute("id", id);
+			request.setAttribute("nick_name", logonDao.getNickName(id));
+			
+		}
 		
 		
 		StoryDataBean dto = new StoryDataBean();

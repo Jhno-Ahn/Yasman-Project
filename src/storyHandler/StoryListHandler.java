@@ -12,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import board.BasketBoardDBBean;
+import member.MemberLogonDao;
 import story.StoryDao;
 import story.StoryDataBean;
 
@@ -22,13 +24,15 @@ public class StoryListHandler implements CommandHandler{
 	@Resource
 	private StoryDao storyDao;
 	
-	@RequestMapping("/story/storyList")
+	@Resource MemberLogonDao logonDao;
+	
+	@RequestMapping("/storyList")
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		
 		request.setCharacterEncoding("utf-8");
 		
-		int pageSize = 9;
+		int pageSize = 6;
 		int pageBlock = 3;
 
 		int count = 0;
@@ -85,7 +89,14 @@ public class StoryListHandler implements CommandHandler{
 		}
 			
 		
-		return new ModelAndView("story/storyList");
+		if(request.getParameter("id") != null) {
+			String id = request.getParameter("id");
+			request.setAttribute("id", id);
+			request.setAttribute("nick_name", logonDao.getNickName(id));
+			
+		}
+		
+		return new ModelAndView("storyList");
 	}
 	
 	

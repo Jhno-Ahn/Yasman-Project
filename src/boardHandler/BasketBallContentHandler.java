@@ -18,7 +18,7 @@ public class BasketBallContentHandler implements CommandHandler{
 	@Resource
 	private BasketBoardDao basketBoardDao;
 	
-	@RequestMapping("/basketBall/basketBallContent")
+	@RequestMapping("/basketBallContent")
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse respones) throws Throwable {
 		
@@ -29,7 +29,7 @@ public class BasketBallContentHandler implements CommandHandler{
 		request.setAttribute("dto", dto);
 		request.setAttribute("id", id);
 		request.setAttribute("match_num", match_num);
-		return new ModelAndView("basketBall/basketBallContent");
+		return new ModelAndView("basketBallContent");
 	}
 	
 	

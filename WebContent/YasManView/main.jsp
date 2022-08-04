@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="setting.jsp"%>
 
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -64,7 +64,7 @@
 		                    	<div class="dropdown-menu dropdown-menu-single">
 		                            <a href="footBallBoard.do" class="dropdown-item">FootBall</a>
 		                            <a href="basketBallBoard.do?id=${id}" class="dropdown-item">BasketBall</a>
-		                            <a href="StoryBoard.do" class="dropdown-item">Yasman Story</a>
+		                            <a href="storyList.do?id=${requestScope.id}" class="dropdown-item">Yasman Story</a>
 		                            <a href="Mypage.do" class="dropdown-item">MyPage</a>
 		                            <div class="dropdown-divider"></div>
 		                            <a href="loginForm.do" class="dropdown-item"></a>
@@ -155,12 +155,7 @@
         </div>
     </section>
            <!-- =================================================로그인을 안 했을 때============================================ -->
-   <c:if test = "${sessionScope.memId eq null}">
 	 <%@ include file="/YasManView/footer.jsp"%>
-    </c:if>
-    <c:if test = "${sessionScope.memId ne null}">
-	 <%@ include file="/YasManView/loginFooter.jsp"%>
-    </c:if>
 
     <!--  Core JS  -->
  	<!-- script -->

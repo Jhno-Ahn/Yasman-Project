@@ -24,7 +24,7 @@ public class BasketBallBoardHandler implements CommandHandler{
 	@Resource
 	private MemberLogonDao logonDao;
 	
-	@RequestMapping("/basketBall/basketBallBoard")
+	@RequestMapping("/basketBallBoard")
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse respones) throws Throwable {
 		
@@ -36,7 +36,7 @@ public class BasketBallBoardHandler implements CommandHandler{
 			BasketBoardDBBean basketDao = new BasketBoardDBBean();
 		}
 		
-		return new ModelAndView("basketBall/basketBallBoard");
+		return new ModelAndView("basketBallBoard");
 	}
 
 }

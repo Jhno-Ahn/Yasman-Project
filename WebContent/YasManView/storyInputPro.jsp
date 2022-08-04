@@ -13,10 +13,8 @@
 		alert( "다시하셈" );
 		//-->
 	</script>
-	<meta http-equiv="refresh" content="0; url=storyInputForm.do">
+	<meta http-equiv="refresh" content="0; url=storyInputForm.do?id${requestScope.id}">
 </c:if>
 <c:if test="${result != 0}">
-	<c:redirect url="storyList.do"/>
-		<%-- <c:param name = "story_member_id" value = "${requestScope.stroy_member_id}"/>
-	</c:redirect>	 --%>
+	<c:redirect url="storyList.do?id=${requestScope.id}"/>
 </c:if>	

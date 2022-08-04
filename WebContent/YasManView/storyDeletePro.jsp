@@ -19,10 +19,10 @@
 			alert( "어ㅏㄴ대 다시해" );
 							
 		</script>
-		<meta http-equiv="refresh" content="0; url=storyList.do">
+		<meta http-equiv="refresh" content="0; url=storyList.do?id=${requestScope.id}">
 	</c:if>
 	<c:if test="${result != 0}">
-		<c:redirect url="storyList.do"/>
+		<c:redirect url="storyList.do?id=${requestScope.id}"/>
 	</c:if>
 </c:if>
 

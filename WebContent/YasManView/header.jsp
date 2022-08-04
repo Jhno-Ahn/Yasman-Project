@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="setting.jsp"%>
 <head>
+	<meta charset="UTF-8">
+	<title>Outdoor Sports Mania</title>
    	<!-- script -->
    	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<!-- Core JS  -->
@@ -41,23 +44,42 @@
             <!-- Collapse -->
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mt-4 mt-lg-0 ml-auto">
-    
                     <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
-    
                         <a class="nav-link" href="category.html" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false" style="color: seagreen;">Category</a>
-                        <div class="dropdown-menu dropdown-menu-single">
-                            <a href="football.html" class="dropdown-item">FootBall</a>
-                            <a href="bascketball.html" class="dropdown-item">BascketBall</a>
-                            <a href="story.html" class="dropdown-item">Yasman Story</a>
-                            <a href="myPage.html" class="dropdown-item">MyPage</a>
-                            <div class="dropdown-divider"></div>
-                            <a href="login.html" class="dropdown-item"></a>
-                        </div>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="login.html">LogIn</a>
-                    </li>
+                            
+           <!-- =================================================로그인을 안 했을 때============================================ -->
+                         	<c:if test = "${sessionScope.memId eq null}">
+		                        <div class="dropdown-menu dropdown-menu-single">
+		                            <a href="loginForm.do" class="dropdown-item">FootBall</a>
+		                            <a href="loginForm.do" class="dropdown-item">BascketBall</a>
+		                            <a href="loginForm.do" class="dropdown-item">Yasman Story</a>
+		                            <a href="loginForm.do" class="dropdown-item">MyPage</a>
+		                            <div class="dropdown-divider"></div>
+		                            <a href="loginForm.do" class="dropdown-item"></a>
+		                        </div>
+		                        <li class="nav-item">
+                        			<a class="nav-link" href="loginForm.do">LogIn</a>
+                   				 </li>
+		                    </c:if>
+           <!-- =================================================로그인을 안 했을 때============================================ -->
+          <!-- =================================================로그인을  했을 때============================================ --> 
+
+		                    <c:if test = "${sessionScope.memId ne null}">
+		                    	<div class="dropdown-menu dropdown-menu-single">
+		                            <a href="footBallBoard.do" class="dropdown-item">FootBall</a>
+		                            <a href="basketBallBoard.do?id=${id}" class="dropdown-item">BasketBall</a>
+		                            <a href="StoryBoard.do" class="dropdown-item">Yasman Story</a>
+		                            <a href="Mypage.do" class="dropdown-item">MyPage</a>
+		                            <div class="dropdown-divider"></div>
+		                            <a href="loginForm.do" class="dropdown-item"></a>
+		                        </div>
+		                        <li class="nav-item">
+                        			<a class="nav-link">${requestScope.nick_name}님, 환영합니다.</a>
+                   				</li>
+ 						    </c:if>
+           <!-- =================================================로그인을  했을 때============================================ -->     
+    
     
                 </ul>
             </div>

@@ -8,12 +8,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import member.MemberLogonDao;
 import story.StoryDao;
 
 @Controller
 public class StoryDeleteProHandler implements CommandHandler{
 	@Resource
 	private StoryDao storyDao;
+	
+	@Resource
+	private MemberLogonDao logonDao;
 	
 	@RequestMapping("/storyDeletePro")
 	@Override
@@ -24,20 +28,12 @@ public class StoryDeleteProHandler implements CommandHandler{
 		int result = storyDao.deleteArticles(story_num);
 		request.setAttribute("result", result);
 		
-		
-		
-		//String story_member_id = (request.getParameter("story_member_id"));
-		
-		//int resultCheck = storyDao.check(story_num, story_member_id);
-		
-		//request.setAttribute("resultCheck", resultCheck);
-		
-		//if(resultCheck !=0) {
-		//	int result = storyDao.deleteArticles(story_num);
-		//	request.setAttribute("result", result);
-		//}
-		
-		
+		if(request.getParameter("id") != null) {
+			String id = request.getParameter("id");
+			request.setAttribute("id", id);
+			request.setAttribute("nick_name", logonDao.getNickName(id));
+			
+		}
 		
 		
 		return new ModelAndView("storyDeletePro");

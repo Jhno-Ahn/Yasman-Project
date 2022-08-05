@@ -2,15 +2,27 @@
     pageEncoding="UTF-8"%>
 
 
+
+
 <head>
+	<!-- 견들지 말것 -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/YasMan/YasManView/memberInputForm.css">
+  	<!-- 견들지 말것 -->
 </head>
 
 <body>
+
+<script>
+history.pushState(null, null, location.href);
+window.onpopstate = function(event) {
+   history.go(1);
+};
+</script>
+
   <section class="ftco-section">
     <div class="container">
       <div class="row justify-content-center align-items-center">

@@ -1,8 +1,5 @@
 package boardHandler;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -12,14 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import board.BasketBoardDBBean;
-import board.BasketBoardDao;
-import board.BasketBoardDataBean;
+import board.MatchBoardDBBean;
 import member.MemberLogonDao;
 
 @Controller
 public class BasketBallBoardHandler implements CommandHandler{
-	
 	
 	@Resource
 	private MemberLogonDao logonDao;
@@ -33,7 +27,7 @@ public class BasketBallBoardHandler implements CommandHandler{
 			request.setAttribute("id", id);
 			request.setAttribute("nick_name", logonDao.getNickName(id));
 			
-			BasketBoardDBBean basketDao = new BasketBoardDBBean();
+			MatchBoardDBBean matchDao = new MatchBoardDBBean();
 		}
 		
 		return new ModelAndView("basketBallBoard");

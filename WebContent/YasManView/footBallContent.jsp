@@ -1,12 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<!DOCTYPE html>
-<!-- header -->
-<%@ include file="/YasManView/header.jsp"%>
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Webpixels">
+    <%@ include file="/YasManView/setting.jsp"%>
+    <title>경기장 상세 내용</title>
+
+    <!-- CSS -->
+    <!-- Favicon -->
+    <link rel="stylesheet" href="/YasMan/YasManView/assets/libs/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="/YasMan/YasManView/assets/css/quick-website.css" id="stylesheet">
+    <link rel="stylesheet" href="/YasMan/YasManView/assets/css/index.css">
+    <link rel="icon" href="/YasManView/Images/assets/img/yasman/YasmanLogoBlack.png" type="image/png">
+    <!-- 형광펜 css -->
+    <link href="/YasMan/YasManView/assets/css/neon.css">
+    <!-- Preloader -->
+    <link href="/YasMan/YasManView/assets/css/preloader.css" rel="stylesheet">
+    
+</head>
+
 <body>
 
-
+    	<!-- header -->
+   <%@ include file="/YasManView/header.jsp"%>
+    	<!-- header -->
 
     <section class="slice slice-lg" style="padding-top: 0;">
             <div class="container">
@@ -19,32 +42,32 @@
                                     <h2>${dto.match_stardi_name}</h2>
                                 </div>
                                 <hr>
-                                <c:if test = "${dto.match_stardi_name eq '서경대 풋살파크'}">
+                                <c:if test = "${dto.match_stardi_name eq '서울 은평 롯데몰'}">
                                 <div style="margin-bottom: 20px;">
                                     <h6>경기장 주소 </h6>
-                                    <h2>서울 성북구 서경로 118</h2>
+                                    <h2>서울 은평구 진관동 통일로 1050</h2>
                                 </div>
                                 <hr>
                                 <div style="margin-bottom: 20px;">
                                     <h6>경기장 연락처 </h6>
-                                    <h2>0507-1407-7734</h2>
+                                    <h2>02-2673-0000</h2>
                                 </div>
                                 </c:if>
-                                <c:if test = "${dto.match_stardi_name eq '도봉산 구민 운동장'}">
+                                <c:if test = "${dto.match_stardi_name eq '서울 용산 아이파크몰'}">
                                 <div style="margin-bottom: 20px;">
                                     <h6>경기장 주소 </h6>
-                                    <h2>서울 도봉구 도봉동 181</h2>
+                                    <h2>서울 도봉구 도봉동 138 단지 </h2>
                                 </div>
                                 <hr>
                                 <div style="margin-bottom: 20px;">
                                     <h6>경기장 연락처 </h6>
-                                    <h2>0507-1407-8911</h2>
+                                    <h2>02-8471-6744</h2>
                                 </div>
                                 </c:if>
-                                <c:if test = "${dto.match_stardi_name eq '양주 풋살파크'}">
+                                <c:if test = "${dto.match_stardi_name eq '도봉 루다 풋살장'}">
                                 <div style="margin-bottom: 20px;">
                                     <h6>경기장 주소 </h6>
-                                    <h2>서울 관악구 양주동 171로</h2>
+                                    <h2>서울 도봉구 방학로 223 신동아프라자</h2>
                                 </div>
                                 <hr>
                                 <div style="margin-bottom: 20px;">
@@ -52,7 +75,7 @@
                                     <h2>0507-3028-8911</h2>
                                 </div>
                                 </c:if>
-                                <c:if test = "${dto.match_stardi_name eq '강북 생활 농구 센터'}">
+                                <c:if test = "${dto.match_stardi_name eq '노원 하라 풋살장'}">
                                 <div style="margin-bottom: 20px;">
                                     <h6>경기장 주소 </h6>
                                     <h2>서울 강북구 도촌동 141로</h2>

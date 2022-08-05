@@ -18,14 +18,14 @@ import member.MemberLogonDao;
 import member.MemberLogonDataBean;
 
 @Controller
-public class ApplyBasketMatchProHandler implements CommandHandler{
+public class ApplyFootMatchProHandler implements CommandHandler{
 
 	@Resource
 	private MemberLogonDao logonDao;
 	@Resource
 	private MatchBoardDao matchDao;
 	
-	@RequestMapping("/applyBasketMatchPro")
+	@RequestMapping("/applyFootMatchPro")
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse respones) throws Throwable {
 		
@@ -54,7 +54,7 @@ public class ApplyBasketMatchProHandler implements CommandHandler{
 		request.setAttribute("result", result);
 		}
 		
-		return new ModelAndView("applyBasketMatchPro");
+		return new ModelAndView("applyFootMatchPro");
 	}
 }
 	

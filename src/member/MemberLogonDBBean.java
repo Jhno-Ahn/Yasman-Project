@@ -61,19 +61,19 @@ public class MemberLogonDBBean implements MemberLogonDao{
 		return SqlMapClient.getSession().selectOne("YasMember.getMember", id);
 	}
 	
-	public int applyBasketBoard(HashMap<String, Integer> map, String id) {
+	public int applyMatchBoard(HashMap<String, Integer> map, String id) {
 		int result = 0;
 		MemberLogonDataBean confirm = confirmMyMatch_first(id);
 		if(confirm == null) {
-			return SqlMapClient.getSession().update("YasMember.applyBasketBoard_first", map);
+			return SqlMapClient.getSession().update("YasMember.applyMatchBoard_first", map);
 		} else {
 			confirm = confirmMyMatch_second(id);
 			if(confirm == null) {
-				return SqlMapClient.getSession().update("YasMember.applyBasketBoard_second", map);
+				return SqlMapClient.getSession().update("YasMember.applyMatchBoard_second", map);
 			} else {
 				confirm = confirmMyMatch_third(id);
 				if(confirm == null) {
-					return SqlMapClient.getSession().update("YasMember.applyBasketBoard_third", map);
+					return SqlMapClient.getSession().update("YasMember.applyMatchBoard_third", map);
 				} else {
 					return result;
 				}
@@ -82,14 +82,15 @@ public class MemberLogonDBBean implements MemberLogonDao{
 	}
 	
 	public MemberLogonDataBean confirmMyMatch_first(String id) {
-		return SqlMapClient.getSession().selectOne("YasMember.confirmMyMatch_first");
+		return SqlMapClient.getSession().selectOne("YasMember.confirmMyMatch_first", id);
 	}
 	public MemberLogonDataBean confirmMyMatch_second(String id) {
-		return SqlMapClient.getSession().selectOne("YasMember.confirmMyMatch_second");
+		return SqlMapClient.getSession().selectOne("YasMember.confirmMyMatch_second", id);
 	}
 	public MemberLogonDataBean confirmMyMatch_third(String id) {
-		return SqlMapClient.getSession().selectOne("YasMember.confirmMyMatch_third");
+		return SqlMapClient.getSession().selectOne("YasMember.confirmMyMatch_third", id);
 	}
+	
 	
 //	public int modifyMember(MemberLogonDataBean dto) {
 //			return SqlMapClient.getSession().update("Member.modifyMember", dto);

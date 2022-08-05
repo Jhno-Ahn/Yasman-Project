@@ -8,23 +8,30 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import board.BasketBoardDBBean;
-import board.BasketBoardDao;
-import board.BasketBoardDataBean;
+import board.MatchBoardDao;
+import board.MatchBoardDataBean;
+import member.MemberLogonDao;
+import member.MemberLogonDataBean;
 
 @Controller
 public class BasketBallContentHandler implements CommandHandler{
 	
 	@Resource
-	private BasketBoardDao basketBoardDao;
+	private MatchBoardDao basketDao;
+	@Resource
+	private MemberLogonDao logonDao;
 	
 	@RequestMapping("/basketBallContent")
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse respones) throws Throwable {
 		
 		String id = request.getParameter("id");
+		MemberLogonDataBean dto_member = logonDao.getMember(id);
+		String nick_name = dto_member.getNick_name();
+		request.setAttribute("nick_name", nick_name);
+		
 		int match_num = Integer.parseInt(request.getParameter("match_num"));
-		BasketBoardDataBean dto = basketBoardDao.contentMatch(match_num);
+		MatchBoardDataBean dto = basketDao.contentMatch(match_num);
 		
 		request.setAttribute("dto", dto);
 		request.setAttribute("id", id);

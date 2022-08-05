@@ -13,14 +13,14 @@ import board.MatchBoardDataBean;
 import member.MemberLogonDao;
 
 @Controller
-public class BasketMatchInputProHandler implements CommandHandler{
+public class FootMatchInputProHandler implements CommandHandler{
 	
 	@Resource
 	private MatchBoardDao matchBoardDao;
 	@Resource
 	private MemberLogonDao logonDao;
 	
-	@RequestMapping("/basketMatchInputPro")
+	@RequestMapping("/footMatchInputPro")
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse respones) throws Throwable {
 		request.setCharacterEncoding("utf-8");
@@ -43,11 +43,7 @@ public class BasketMatchInputProHandler implements CommandHandler{
 		request.setAttribute("result", result);
 		
 		
-		return new ModelAndView("basketMatchInputPro");
+		return new ModelAndView("footMatchInputPro");
 	}
-	
-	
-	
-	
 
 }

@@ -1,9 +1,6 @@
-<%@page import="board.BasketBoardDBBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-
-     <%@taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
   	
   	<head>
   		<style>
@@ -14,7 +11,6 @@
   	</head>
   	<body style = "text-align:center;">
 	   <hr>
-	   
              <div id = "matchlist">
                 <table id = "table">
                   <tr>
@@ -27,7 +23,7 @@
                <c:forEach var= "dto" items="${dtos}">
                   <tr>
                      <td> ${dto.match_kind}</td>
-                     <td><a href = "basketBallContent.do?id=${id}&match_num=${match_num}"> ${dto.match_stardi_name}</a></td>
+                     <td><a href = "basketBallContent.do?id=${id}&match_num=${dto.match_num}"> ${dto.match_stardi_name}</a></td>
                      <td> ${dto.match_day}</td>
                      <td> ${dto.match_time}</td>
                      <td> ${dto.match_personnel_now}</td>

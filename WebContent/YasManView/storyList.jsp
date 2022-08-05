@@ -11,11 +11,6 @@
     
 <!DOCTYPE html>
 <html>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" rel="stylesheet">
 
 	<%@ include file="/YasManView/header.jsp"%>
     <!-- Main content -->
@@ -56,11 +51,11 @@
                             <hr style="border: solid 1px; margin: 0;">
                             <br>
                             <div class="story_image" id="openModalBtn">
-                               <img src="./YasManView/assets/img/yasman/${dtos.story_og_file}" data-toggle="lightbox" class="img-fluid rounded" width="300px" height="300px">
+                               <img src="./YasManView/assets/img/yasman/${dtos.story_og_file}" class="img-fluid rounded" width="300px" height="300px">
                             </div>
                             <c:if test="${requestScope.id == dtos.story_member_id}">
                              <button type="button">
-                                	<a class="delBtn" href="storyDeletePro.do?story_num=${dtos.story_num}&id=${requestScope.id}">삭제</a>
+                                	<a href="storyDeletePro.do?story_num=${dtos.story_num}&id=${requestScope.id}">삭제</a>
                              </button>
                             </c:if>
                             <c:if test="${requestScope.id == 'rhksflwk123'}">
@@ -97,20 +92,4 @@
 				</c:if>
 			</div>
 	<%@ include file="/YasManView/footer.jsp"%>
-	<script>
-	$(".delBtn").click(function(){    
-		if(confirm("정말 삭제하시겠습니까?") == true){       
-			 alert("등록되었습니다");  
-		}    
-		else{       
-			 return ;    
-		}
-	});
-	</script>
-	 <script>
-				$(document).on('click', '[data-toggle="lightbox"]', function(event) {
-				    event.preventDefault();
-				    $(this).ekkoLightbox();
-				});
-			</script>
 </html>

@@ -73,14 +73,16 @@ function confirm_nick_name() {
 }
 
 // 야스맨 농구 지원 ------------------------------------------------------------------------------------------------------------
-function applyBasketMatch_A(id, num) {
-	var url = "applyBasketMatchForm.do?id=" + id + "&match_num=" + num;
+function applyBasketMatch_A(id, match_num) {
+	var url = "applyBasketMatchForm.do?id=" + id + "&match_num=" + match_num;
 	window.open(url, "confirm", "menubar=no, scrollbar=no, status=no, width=400, height=300");
+	self.close();
 }
 
 function applyBasketMatch_B(id, match_num) {
 	var url = "applyBasketMatchPro.do?id=" + id + "&match_num=" + match_num;
 	window.open(url, "conform", "menubar=no, scrillbar=no, status=no, width=400, height=300");
+	self.close();
 }
 //------------------------------------------------------------------------------------------------------------------------
 	

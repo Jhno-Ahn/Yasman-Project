@@ -20,12 +20,10 @@
  	<select id = "getNickName" parameterType = "String" resultType = "String">
  		select nick_name from yas_member where id = #{id}
  	</select>
- 	 
  	  
  	<select id = "getMember" parameterType = "String" resultType = "member.MemberLogonDataBean">
  		select * from yas_member where id = #{id}
  	</select>
- 	 
   
  	<insert id = "insertMember" parameterType = "member.MemberLogonDataBean">
  		insert into yas_member(member_num, id, member_name, nick_name, passwd, member_addr, member_tel, reg_num, member_reg_date
@@ -43,27 +41,27 @@
  		where id = #{id} 
  	</update>
  	 -->
- 	 <insert id = "insertBasketBoard" parameterType = "board.BasketBoardDataBean">
- 		insert into yas_basketmatch_board(match_num, match_kind, match_stardi_name,
- 		 match_personnel, match_personnel_now, match_day, match_time, match_member_id_first, match_member_id_second) 
+ 	 <!-- 확인 -->
+ 	<insert id = "insertMatchBoard" parameterType = "board.MatchBoardDataBean">
+ 		insert into yas_match_board(match_num, match_kind, match_stardi_name,
+ 		 match_personnel, match_personnel_now, match_day, match_time, match_member_num_first, match_member_num_second) 
  		values(yas_match_num.NEXTVAL, #{match_kind}, #{match_stardi_name}, 2, 0,
- 		 #{match_day}, #{match_time}, #{match_member_id_first, jdbcType=VARCHAR}, 
- 		 #{match_member_id_second, jdbcType=VARCHAR})
+ 		 #{match_day}, #{match_time}, null, null)
  	</insert>
  	
- 	<select id="getArticles" resultType="board.BasketBoardDataBean">
+ 	<select id="getArticles" resultType="board.MatchBoardDataBean">
 		select match_kind, match_stardi_name, match_day, match_time
-			from yas_basketmatch_board
+			from yas_match_board
 	</select>
 	
-	<select id="selectList" parameterType = "String" resultType="board.BasketBoardDataBean">
+	<!-- 확인 -->
+	<select id="selectList" parameterType = "String" resultType="board.MatchBoardDataBean">
 		select match_num, match_kind, match_stardi_name, match_day, match_time, match_personnel_now
-			from yas_basketmatch_board where match_stardi_name = #{match_stardi_name} order by match_day, match_time
+			from yas_match_board where match_stardi_name = #{match_stardi_name} order by match_day, match_time
 	</select>
- 	 
- 	<select id="contentMatch" parameterType = "Integer" resultType="board.BasketBoardDataBean">
-		select match_num, match_kind, match_stardi_name, match_day, match_time, match_personnel_now, match_personnel
-		 from yas_basketmatch_board where match_num = #{match_num}
+ 	 <!-- 확인 -->
+ 	<select id="contentMatch" parameterType = "Integer" resultType="board.MatchBoardDataBean">
+		select * from yas_match_board where match_num = #{match_num}
 	</select> 
 	
 	 
@@ -79,15 +77,38 @@
 		select my_match_num_third from yas_member where id = #{id}
 	</select>
 	 
-	 <update id = "applyBasketBoard_first" parameterType="java.util.Map">
-	 	update yas_member set my_match_num_first = #{member_num} where member_num = #{member_num}
+	 <update id = "applyMatchBoard_first" parameterType="java.util.Map">
+	 	update yas_member set my_match_num_first = #{match_num} where member_num = #{member_num}
 	 </update>
 	 
-	 <update id = "applyBasketBoard_second" parameterType="java.util.Map">
-	 	update yas_member set my_match_num_second = #{member_num} where member_num = #{member_num}
+	 <update id = "applyMatchBoard_second" parameterType="java.util.Map">
+	 	update yas_member set my_match_num_second = #{match_num} where member_num = #{member_num}
 	 </update>
  	
- 	<update id = "applyBasketBoard_third" parameterType="java.util.Map">
-	 	update yas_member set my_match_num_third = #{member_num} where member_num = #{member_num}
+ 	<update id = "applyMatchBoard_third" parameterType="java.util.Map">
+	 	update yas_member set my_match_num_third = #{match_num} where member_num = #{member_num}
 	 </update>
+	 
+	 <!-- 확인 -->
+	 <update id = "matchBoard_personnel" parameterType = "Integer">
+	 	update yas_match_board set match_personnel_now = match_personnel_now+1 where match_num = #{match_num}
+	 </update>
+	 
+	 <!-- 확인 -->
+	 <update id = "matchBoard_member_num_first" parameterType = "java.util.Map">
+	 	update yas_match_board set match_member_num_first = #{member_num} where match_num = #{match_num}
+	 </update>
+	 
+	 <!-- 확인 -->
+	 <update id = "matchBoard_member_num_second" parameterType = "java.util.Map">
+	 	update yas_match_board set match_member_num_second = #{member_num} where match_num = #{match_num}
+	 </update>
+	 
+	 
+	 
+	 <select id="getCount" resultType="int">
+		select count(*) from yas_story_board
+	</select>
+	 
+	 
  </mapper>

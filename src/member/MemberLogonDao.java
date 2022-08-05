@@ -10,7 +10,7 @@ public interface MemberLogonDao {
 	public MemberLogonDataBean getMember(String id);
 	public int insertMember(MemberLogonDataBean dto);
 	public String getNickName(String id);
-	public int applyBasketBoard(HashMap<String, Integer> map, String id);
+	public int applyMatchBoard(HashMap<String, Integer> map, String id);
 	public MemberLogonDataBean confirmMyMatch_first(String id);
 	public MemberLogonDataBean confirmMyMatch_second(String id);
 	public MemberLogonDataBean confirmMyMatch_third(String id);

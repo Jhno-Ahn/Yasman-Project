@@ -4,7 +4,7 @@
 <%@taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
 
-<c:set var =  "project" value = "/MemberEx"/>
+<c:set var = "project" value = "/MemberEx"/>
 <c:set var =  "page_main" value = "메인페이지"/>
 <c:set var =  "page_input" value = "회원가입"/>
 <c:set var =  "page_confirm" value = "아이디 중복확인"/>

@@ -11,6 +11,7 @@
 	<script src="${pageContext.request.contextPath}/YasManView/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="${pageContext.request.contextPath}/YasManView/assets/libs/svg-injector/dist/svg-injector.min.js"></script>
 	<script src="${pageContext.request.contextPath}/YasManView/assets/libs/feather-icons/dist/feather.min.js"></script>
+	<script src="${pageContext.request.contextPath}/YasManView/script.js"></script>
 	<!-- Quick JS -->
 	<script src="${pageContext.request.contextPath}/YasManView/assets/js/quick-website.js"></script>
 	<script>
@@ -26,14 +27,23 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/YasManView/assets/css/quick-website.css" id="stylesheet">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/YasManView/assets/css/index.css">
     <link rel="icon" href="${pageContext.request.contextPath}/YasManView/assets/img/yasman/YasmanLogoBlack.png" type="image/png">
-
+	<link rel="stylesheet" href="/YasMan/YasManView/memberInputForm.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="${pageContext.request.contextPath}/YasManView/assets/css/neon.css">
+	<style>
+    	#table {
+    		align:center;
+    		width:800px;
+    	}
+    </style>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-dark-dark">
         <div class="container">
             <!-- Brand -->
-            <a class="navbar-brand" href="main.do">
+            <a class="navbar-brand" href="main.do?id=${id}">
                 <img alt="Image placeholder" src="${pageContext.request.contextPath}/YasManView/assets/img/yasman/YasmanLogoBlack.png" style="height: 120px" ; id="navbar-logo">
             </a>
             <!-- Toggler -->
@@ -59,7 +69,7 @@
 		                            <a href="loginForm.do" class="dropdown-item"></a>
 		                        </div>
 		                        <li class="nav-item">
-                        			<a class="nav-link" href="loginForm.do">LogIn</a>
+                        			<a class="nav-link" style="color:#50b5ff" href="loginForm.do">LogIn</a>
                    				 </li>
 		                    </c:if>
            <!-- =================================================로그인을 안 했을 때============================================ -->
@@ -67,15 +77,15 @@
 
 		                    <c:if test = "${sessionScope.memId ne null}">
 		                    	<div class="dropdown-menu dropdown-menu-single">
-		                            <a href="footBallBoard.do" class="dropdown-item">FootBall</a>
+		                            <a href="footBallBoard.do?id=${id}" class="dropdown-item">FootBall</a>
 		                            <a href="basketBallBoard.do?id=${id}" class="dropdown-item">BasketBall</a>
-		                            <a href="StoryBoard.do" class="dropdown-item">Yasman Story</a>
-		                            <a href="Mypage.do" class="dropdown-item">MyPage</a>
+		                            <a href="storyList.do?id=${id}" class="dropdown-item">Yasman Story</a>
+		                            <a href="Mypage.do?id=${id}" class="dropdown-item">MyPage</a>
 		                            <div class="dropdown-divider"></div>
 		                            <a href="loginForm.do" class="dropdown-item"></a>
 		                        </div>
 		                        <li class="nav-item">
-                        			<a class="nav-link">${requestScope.nick_name}님, 환영합니다.</a>
+                        			<a class="nav-link"  style="color:#50b5ff">${requestScope.nick_name}님, 환영합니다.</a>
                    				</li>
  						    </c:if>
            <!-- =================================================로그인을  했을 때============================================ -->     

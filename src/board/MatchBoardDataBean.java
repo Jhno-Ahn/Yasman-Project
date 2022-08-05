@@ -1,6 +1,6 @@
 package board;
 
-public class BasketBoardDataBean {
+public class MatchBoardDataBean {
 	
 	int match_num;
 	String match_kind;
@@ -9,10 +9,8 @@ public class BasketBoardDataBean {
 	int match_personnel_now;
 	String match_day;
 	String match_time;
-	String match_member_id_first;
-	String match_member_id_second;
-	
-	
+	int match_member_num_first;
+	int match_member_num_second;
 	public int getMatch_num() {
 		return match_num;
 	}
@@ -55,17 +53,17 @@ public class BasketBoardDataBean {
 	public void setMatch_time(String match_time) {
 		this.match_time = match_time;
 	}
-	public String getMatch_id_first() {
-		return match_member_id_first;
+	public int getMatch_member_num_first() {
+		return match_member_num_first;
 	}
-	public void setMatch_id_first(String match_id_first) {
-		this.match_member_id_first = match_id_first;
+	public void setMatch_member_num_first(int match_member_num_first) {
+		this.match_member_num_first = match_member_num_first;
 	}
-	public String getMatch_id_second() {
-		return match_member_id_second;
+	public int getMatch_member_num_second() {
+		return match_member_num_second;
 	}
-	public void setMatch_id_second(String match_id_second) {
-		this.match_member_id_second = match_id_second;
+	public void setMatch_member_num_second(int match_member_num_second) {
+		this.match_member_num_second = match_member_num_second;
 	}
 
 }

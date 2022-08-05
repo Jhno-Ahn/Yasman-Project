@@ -1,18 +1,13 @@
 package createBean;
 
-import javax.sql.DataSource;
-
-import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
-import board.BasketBoardDBBean;
-import board.BasketBoardDao;
-import board.StardiBoardDBBean;
-import board.StardiBoardDao;
+import board.MatchBoardDBBean;
+import board.MatchBoardDao;
 import member.MemberLogonDBBean;
 import member.MemberLogonDao;
 import story.StoryDBBean;
@@ -27,19 +22,15 @@ public class CreateBean {
 	}
 	
 	@Bean
+	public MatchBoardDao matchBoardDao() {
+		return new MatchBoardDBBean();
+	}
+	
+	@Bean
 	public StoryDao storyDao() {
 		return new StoryDBBean();
 	}
 	
-	@Bean
-	public StardiBoardDao stardiboardDao() {
-		return new StardiBoardDBBean();
-	}
-	
-	@Bean
-	public BasketBoardDao basketBoardDao() {
-		return new BasketBoardDBBean();
-	}
 	
 	@Bean
 	public ViewResolver viewResolver() {
@@ -49,4 +40,6 @@ public class CreateBean {
 		viewResolver.setSuffix(".jsp");
 		return viewResolver;
 	}
+	
+
 }

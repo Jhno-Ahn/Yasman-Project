@@ -18,13 +18,13 @@
                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img class="d-block w-100" src="/YasMan/YasManView/assets/img/yasman/11.jpg" alt="First slide">
+                                    <img class="d-block w-100" src="/YasMan/YasManView/assets/img/yasman/44.jpg" alt="First slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block w-100" src="/YasMan/YasManView/assets/img/yasman/22.jpg" alt="Second slide">
+                                    <img class="d-block w-100" src="/YasMan/YasManView/assets/img/yasman/55.jpg" alt="Second slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block w-100" src="/YasMan/YasManView/assets/img/yasman/33.jpg" alt="Third slide">
+                                    <img class="d-block w-100" src="/YasMan/YasManView/assets/img/yasman/66.jpg" alt="Third slide">
                                 </div>
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
@@ -43,7 +43,7 @@
                 <div class="col-12 col-md-7 col-lg-6 order-md-1 pr-md-5">
                     <!-- Heading -->
                     <h1 class="display-4 text-center text-md-left mb-3">
-                        <strong class="text-primary" style="color: rgb(190, 224, 243);"><span style="color: rgb(88, 110, 233);"> 농구 <br> </span></strong> 경기 일정을 한눈에
+                        <strong class="text-primary" style="color: rgb(190, 224, 243);"><span style="color: rgb(88, 110, 233);"> 축구 <br> </span></strong> 경기 일정을 한눈에
                         <br>확인해보세요.
                     </h1>
                     <!-- Text -->
@@ -89,21 +89,21 @@
 
     <!------------------------------------------------------------------- 요일선택 ---------------------------------------------------------------------->
     <div class="text-center text-md-center mt-5">
-        <input type = "button" class="btn btn-primary btn-icon" name = "seokyoung" 
-            style="background-color: white; text-color: blue;"  value = "서경대 풋살파크">
-        <input type = "button" class="btn btn-primary btn-icon" name = "dobong" 
-            style="background-color: white; text-color: blue;"  value = "도봉산 구민 운동장">
-        <input type = "button" class="btn btn-primary btn-icon" name = "yangjoo" 
-            style="background-color: white; text-color: blue;"  value = "양주 풋살파크">
-       <input type = "button" class="btn btn-primary btn-icon" name = "gangbook" 
-            style="background-color: white; text-color: blue;"  value = "강북 생활 농구 센터">
+        <input type = "button" class="btn btn-primary btn-icon" name = "enpyoung" 
+            style="background-color: white; text-color: blue;"  value = "서울 은평 롯데몰">
+        <input type = "button" class="btn btn-primary btn-icon" name = "yongsan" 
+            style="background-color: white; text-color: blue;"  value = "서울 용산 아이파크몰">
+        <input type = "button" class="btn btn-primary btn-icon" name = "ruda" 
+            style="background-color: white; text-color: blue;"  value = "도봉 루다 풋살장">
+       <input type = "button" class="btn btn-primary btn-icon" name = "hara" 
+            style="background-color: white; text-color: blue;"  value = "노원 하라 풋살장">
     </div>
 	<!------------------------------------------------------------------- 요일선택 ---------------------------------------------------------------------->
             <div class="col-md-12">
                 <!-- 경기신청버튼 -->
                <c:if test = "${requestScope.id eq 'rhksflwk123'}">
                 <div class="d-flex justify-content-start align-items-center activity">
-                    <a href="basketMatchInputForm.do?id=${id}" class="btn btn-neutral btn-icon d-none d-lg-inline-block"
+                    <a href="footMatchInputForm.do?id=${id}" class="btn btn-neutral btn-icon d-none d-lg-inline-block"
                         style="border: 2px solid val(--blue);">경기 글 작성 &nbsp;&nbsp;<span class="btn-inner--icon">
                             <svg width="1em"
                                 height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -128,14 +128,13 @@
   
     <!-- Footer -->
 	 <%@ include file="/YasManView/footer.jsp"%>
-
-	 <script src = "/JQueryEx/jquery-3.6.0.js"></script>
-    <script type = "text/javascript">
+<script src = "/JQueryEx/jquery-3.6.0.js"></script>
+<script type = "text/javascript">
     	//<!--
     		$(document).ready(
 		function() {
 			//리스트 불러오기
-			$("input[name = seokyoung]").on(
+			$("input[name = enpyoung]").on(
 					"click",
 					function(event) {
 						$.ajax(
@@ -144,7 +143,7 @@
 								url : "list.do",
 								//처리한다음에 아이디 돌려줄 파일
 								data : {
-									match_stardi_name : $("input[name=seokyoung]").val(),
+									match_stardi_name : $("input[name=enpyoung]").val(),
 									id : "${id}"
 								},
 								dataType : "text",
@@ -160,7 +159,7 @@
 					}
 				);
 			
-			$("input[name = dobong]").on(
+			$("input[name = yongsan]").on(
 					"click",
 					function(event) {
 						$.ajax(
@@ -169,7 +168,7 @@
 								url : "list.do",
 								//처리한다음에 아이디 돌려줄 파일
 								data : {
-									match_stardi_name : $("input[name=dobong]").val(),
+									match_stardi_name : $("input[name=yongsan]").val(),
 									id : "${id}"
 								},
 								dataType : "text",
@@ -184,7 +183,7 @@
 						)	
 					}
 				);
-			$("input[name = yangjoo]").on(
+			$("input[name = ruda]").on(
 					"click",
 					function(event) {
 						$.ajax(
@@ -193,7 +192,7 @@
 								url : "list.do",
 								//처리한다음에 아이디 돌려줄 파일
 								data : {
-									match_stardi_name : $("input[name=yangjoo]").val(),
+									match_stardi_name : $("input[name=ruda]").val(),
 									id : "${id}"
 								},
 								dataType : "text",
@@ -209,7 +208,7 @@
 					}
 				);
 			
-			$("input[name = gangbook]").on(
+			$("input[name = hara]").on(
 					"click",
 					function(event) {
 						$.ajax(
@@ -218,7 +217,7 @@
 								url : "list.do",
 								//처리한다음에 아이디 돌려줄 파일
 								data : {
-									match_stardi_name : $("input[name=gangbook]").val(),
+									match_stardi_name : $("input[name=hara]").val(),
 									id : "${id}"
 								},
 								dataType : "text",

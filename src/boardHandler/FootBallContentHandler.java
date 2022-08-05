@@ -14,31 +14,29 @@ import member.MemberLogonDao;
 import member.MemberLogonDataBean;
 
 @Controller
-public class ApplyBasketMatchFormHandler implements CommandHandler{
+public class FootBallContentHandler implements CommandHandler{
 	
+	@Resource
+	private MatchBoardDao matchBoardDao;
 	@Resource
 	private MemberLogonDao logonDao;
-	@Resource
-	private MatchBoardDao matchDao;
 	
-	@RequestMapping("/applyBasketMatchForm")
+	@RequestMapping("/footBallContent")
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse respones) throws Throwable {
 		
 		String id = request.getParameter("id");
-		request.setAttribute("id", id);
+		MemberLogonDataBean dto_member = logonDao.getMember(id);
+		String nick_name = dto_member.getNick_name();
+		request.setAttribute("nick_name", nick_name);
 		
 		int match_num = Integer.parseInt(request.getParameter("match_num"));
-		MatchBoardDataBean dto_board = matchDao.contentMatch(match_num);
-		request.setAttribute("dto_board", dto_board);
+		MatchBoardDataBean dto = matchBoardDao.contentMatch(match_num);
 		
-		request.setAttribute("match_num", match_num);
-		
-		MemberLogonDataBean dto = logonDao.getMember(id);
 		request.setAttribute("dto", dto);
-		
-		
-		return new ModelAndView("applyBasketMatchForm");
+		request.setAttribute("id", id);
+		request.setAttribute("match_num", match_num);
+		return new ModelAndView("footBallContent");
 	}
 	
 	

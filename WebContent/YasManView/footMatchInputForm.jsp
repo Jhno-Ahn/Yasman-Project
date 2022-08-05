@@ -28,22 +28,22 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <!-- Form -->
-                    <form method = "post" action = "basketMatchInputPro.do?id=${id}">
+                    <form method = "post" action = "footMatchInputPro.do?id=${id}">
                         <div class="form-group">
                             <h5>종목 선택</h5>
                             <select class="form-control" id="menu" name="match_kind" required>
                                 <option value="" disabled selected>종목</option>
-                                <option value="농구">농구</option>
+                                <option value="축구">축구</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <h5>구장 선택</h5>
                             <select class="form-control" id="menu" name="match_stardi_name" required>
                                 <option value="" disabled selected>구장</option>
-                                <option value="서경대 풋살파크">서경대 풋살파크</option>
-                                <option value="도봉산 구민 운동장">도봉산 구민운동장</option>
-                                <option value="양주 풋살파크">양주 풋살파크</option>
-                                <option value="강북 생활 농구 센터">강북 생활 농구센터</option>
+                                <option value="서울 은평 롯데몰">서울 은평 롯데몰</option>
+                                <option value="서울 용산 아이파크몰">서울 용산 아이파크몰</option>
+                                <option value="도봉 루다 풋살장">도봉 루다 풋살장</option>
+                                <option value="노원 하라 풋살장">노원 하라 풋살장</option>
                             </select>
                         </div>
                         <div class="form-group">

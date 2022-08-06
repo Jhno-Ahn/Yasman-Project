@@ -91,7 +91,21 @@ public class MemberLogonDBBean implements MemberLogonDao{
 		return SqlMapClient.getSession().selectOne("YasMember.confirmMyMatch_third", id);
 	}
 	
+	public MemberLogonDataBean getMember_num(int member_num) {
+		return SqlMapClient.getSession().selectOne("YasMember.getMember_num", member_num);
+	}
 	
+	public int cancelMatchBoard_first(int member_num) {
+		return SqlMapClient.getSession().update("YasMember.cancelMatch_board_first", member_num);
+	}
+	
+	public int cancelMatchBoard_second(int member_num) {
+		return SqlMapClient.getSession().update("YasMember.cancelMatch_board_second", member_num);
+	}
+	
+	public int cancelMatchBoard_third(int member_num) {
+		return SqlMapClient.getSession().update("YasMember.cancelMatch_board_second", member_num);
+	}
 //	public int modifyMember(MemberLogonDataBean dto) {
 //			return SqlMapClient.getSession().update("Member.modifyMember", dto);
 //	}

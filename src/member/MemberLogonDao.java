@@ -14,6 +14,10 @@ public interface MemberLogonDao {
 	public MemberLogonDataBean confirmMyMatch_first(String id);
 	public MemberLogonDataBean confirmMyMatch_second(String id);
 	public MemberLogonDataBean confirmMyMatch_third(String id);
+	public MemberLogonDataBean getMember_num(int member_num);
+	public int cancelMatchBoard_first(int member_num);
+	public int cancelMatchBoard_second(int member_num);
+	public int cancelMatchBoard_third(int member_num);
 //	public int deleteMember(String id);
 //	public int modifyMember(MemberLogonDataBean dto);
 

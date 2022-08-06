@@ -17,7 +17,7 @@ import board.MatchBoardDataBean;
 public class ListHandler implements CommandHandler{
 	
 	@Resource
-	private MatchBoardDBBean basketDao;
+	private MatchBoardDBBean matchDao;
 	
 	@RequestMapping("/list")
 	@Override
@@ -27,8 +27,8 @@ public class ListHandler implements CommandHandler{
 		
 		String match_stardi_name = request.getParameter("match_stardi_name");
 		String id = request.getParameter("id");
-		List<MatchBoardDataBean> dtos = basketDao.selectList(match_stardi_name);
-//		for(BasketBoardDataBean dto:dtos) {
+		List<MatchBoardDataBean> dtos = matchDao.selectList(match_stardi_name);
+//		for(BasketBoardDataBean dto : dtos) {
 //			request.setAttribute("match_num", dto.getMatch_num());
 //		}
 		request.setAttribute("dtos", dtos);

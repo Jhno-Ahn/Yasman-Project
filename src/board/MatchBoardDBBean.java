@@ -30,5 +30,29 @@ public class MatchBoardDBBean implements MatchBoardDao{
 	public int matchBoard_member_num_second(HashMap<String, Integer> map) {
 		return SqlMapClient.getSession().update("YasMember.matchBoard_member_num_second", map);
 	}
+	
+	public List<MatchBoardDataBean> searchList(int member_num) {
+		return SqlMapClient.getSession().selectList("YasMember.searchList", member_num);
+	}
 
+	public int deleteMatch(int match_num) {
+		return SqlMapClient.getSession().delete("YasMember.deleteMatch", match_num);
+	}
+	
+	public int cancelMatchBoard_personnel(int match_num) {
+		return SqlMapClient.getSession().update("YasMember.cancelMatchBoard_personnel", match_num);
+	}
+	
+	public MatchBoardDataBean searchMatch(HashMap<String, Integer> map) {
+		return SqlMapClient.getSession().selectOne("YasMember.searchMatch", map);
+	}
+	
+	public int cancelMatchBoard_member_num_first(int match_num) {
+		return SqlMapClient.getSession().update("YasMember.cancelMatchBoard_member_num_first", match_num);
+	}
+	
+	public int cancelMatchBoard_member_num_second(int match_num) {
+		return SqlMapClient.getSession().update("YasMember.cancelMatchBoard_member_num_second", match_num);
+	}
+	
 }

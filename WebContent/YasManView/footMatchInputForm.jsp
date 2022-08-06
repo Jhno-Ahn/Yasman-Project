@@ -4,15 +4,15 @@
     
     
 
-<%@ include file="setting.jsp"%>
+<%-- <%@ include file="setting.jsp"%> --%>
 
     <!DOCTYPE html>
-<html lang="en">
+<!-- <html lang="en">
 
 <head>
    <title>Match Form</title>
-   <%@ include file="/YasManView/header.jsp"%>
-</head>
+</head> -->
+   <%@ include file="/YasManView/header2.jsp"%>
 
 <body>
 

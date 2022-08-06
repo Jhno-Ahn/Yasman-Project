@@ -11,8 +11,7 @@
     
 <!DOCTYPE html>
 <html>
-
-	<%@ include file="/YasManView/header.jsp"%>
+	<%@ include file="/YasManView/header2.jsp"%>
     <!-- Main content -->
     <section class="slice slice-lg pb-5">
         <div class="container">
@@ -44,15 +43,23 @@
                     <div class="card text-center hover-translate-y-n10 hover-shadow-lg">
                         <div class="px-5 pb-5 pt-5" style="padding: 0;">
                             <br>
-                            <input type="hidden" name="story_num" readonly value="${dtos.story_num}">
+                            <input type="hidden" name="story_num"  value="${dtos.story_num}">
                             <h5 class="story_member_id">${dtos.story_member_id }</h5>
-                            <h3 class="story_title">${dtos.story_title}</h3>
+	                        <h3 class="story_title">${dtos.story_title}</h3>
                             <br>
                             <hr style="border: solid 1px; margin: 0;">
                             <br>
-                            <div class="story_image" id="openModalBtn">
-                               <img src="./YasManView/assets/img/yasman/${dtos.story_og_file}" class="img-fluid rounded" width="300px" height="300px">
-                            </div>
+
+							<div class="row justify-content-center">
+								<div class="col-md-8">
+									<div class="row">
+										<a href="./YasManView/assets/img/yasman/${dtos.story_og_file}"
+											data-toggle="lightbox" style="width:300px; height:300px;">
+										<img src="./YasManView/assets/img/yasman/${dtos.story_og_file}" class="img-fluid rounded">
+										</a>
+									</div>
+								</div>
+							</div>
                             <c:if test="${requestScope.id == dtos.story_member_id}">
                              <button type="button">
                                 	<a href="storyDeletePro.do?story_num=${dtos.story_num}&id=${requestScope.id}">삭제</a>
@@ -68,11 +75,7 @@
                 </div>
             	</c:forEach>
             </div>
-           
-            
-           
-			
-            
+
 			<div>
 				<c:if test="${count gt 0}">
 					<c:if test="${startPage gt pageBlock}">
@@ -91,5 +94,14 @@
 					</c:if>
 				</c:if>
 			</div>
-	<%@ include file="/YasManView/footer.jsp"%>
+			<script>
+				$(document).on('click', '[data-toggle="lightbox"]',
+					function(event) {
+						event.preventDefault();
+						$(this).ekkoLightbox();
+				});
+			</script>
+		<%@ include file="/YasManView/footer2.jsp"%>
+	
+	
 </html>

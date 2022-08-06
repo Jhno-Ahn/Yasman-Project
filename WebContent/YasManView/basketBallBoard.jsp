@@ -3,9 +3,7 @@
 
  <!DOCTYPE html>
 <html lang="en">
-<head>
-	<%@ include file="/YasManView/header.jsp"%>
-</head>
+	<%@ include file="/YasManView/header2.jsp"%>
 
 <body class="loaded">
     <!-- Main content -->
@@ -127,7 +125,7 @@
 
   
     <!-- Footer -->
-	 <%@ include file="/YasManView/footer.jsp"%>
+	 <%@ include file="/YasManView/footer2.jsp"%>
 
 	 <script src = "/JQueryEx/jquery-3.6.0.js"></script>
     <script type = "text/javascript">

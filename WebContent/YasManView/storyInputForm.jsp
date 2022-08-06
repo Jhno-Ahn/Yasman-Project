@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<%@ include file="/YasManView/header.jsp"%>
+<%@ include file="/YasManView/header2.jsp"%>
     <div>
         <h1 style="text-align: center;">스토리 작성하기</h1>
     </div>

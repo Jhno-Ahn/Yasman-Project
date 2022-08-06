@@ -24,6 +24,10 @@
  	<select id = "getMember" parameterType = "String" resultType = "member.MemberLogonDataBean">
  		select * from yas_member where id = #{id}
  	</select>
+ 	
+ 	<select id = "getMember_num" parameterType = "Integer" resultType = "member.MemberLogonDataBean">
+ 		select * from yas_member where member_num = #{member_num}
+ 	</select>
   
  	<insert id = "insertMember" parameterType = "member.MemberLogonDataBean">
  		insert into yas_member(member_num, id, member_name, nick_name, passwd, member_addr, member_tel, reg_num, member_reg_date
@@ -64,7 +68,8 @@
 		select * from yas_match_board where match_num = #{match_num}
 	</select> 
 	
-	 
+	<!-- ======================================================== --> 
+	
 	<select id = "confirmMyMatch_first" parameterType = "String" resultType = "member.MemberLogonDataBean">
 		select my_match_num_first from yas_member where id = #{id}
 	</select>
@@ -104,11 +109,44 @@
 	 	update yas_match_board set match_member_num_second = #{member_num} where match_num = #{match_num}
 	 </update>
 	 
+	 <!-- 확인 -->
+	 <select id = "searchList" parameterType = "Integer" resultType = "board.MatchBoardDataBean">
+	 	select * from yas_match_board where match_member_num_first = #{member_num} or match_member_num_second = #{member_num}
+	 	order by match_num
+	 </select>
+	 
+	 <select id = "searchMatch" parameterType = "java.util.Map" resultType = "board.MatchBoardDataBean">
+	 	select * from yas_match_board where match_num = #{match_num} and 
+	 	(match_member_num_first = #{member_num} or match_member_num_second = #{member_num})
+	 </select>
+	 
+	 <update id = "cancelMatch_board_first" parameterType = "Integer">
+	 	update yas_member set my_match_num_first = null where member_num = #{member_num}
+	 </update>
+	 
+	 <update id = "cancelMatch_board_second" parameterType = "Integer">
+	 	update yas_member set my_match_num_second = null where member_num = #{member_num}
+	 </update>
+	 
+	 <update id = "cancelMatch_board_third" parameterType = "Integer">
+	 	update yas_member set my_match_num_third = null where member_num = #{member_num}
+	 </update>
+	 
+	  <update id = "cancelMatchBoard_personnel" parameterType = "Integer">
+	 	update yas_match_board set match_personnel_now = match_personnel_now-1 where match_num = #{match_num}
+	 </update>
+	 
+	 <update id = "cancelMatchBoard_member_num_first" parameterType = "Integer">
+	 	update yas_match_board set match_member_num_first = null where match_num = #{match_num}
+	 </update>
+	 
+	 <update id = "cancelMatchBoard_member_num_second" parameterType = "Integer">
+	 	update yas_match_board set match_member_num_second = null where match_num = #{match_num}
+	 </update>
 	 
 	 
-	 <select id="getCount" resultType="int">
-		select count(*) from yas_story_board
-	</select>
+	 
+	 
 	 
 	 
  </mapper>

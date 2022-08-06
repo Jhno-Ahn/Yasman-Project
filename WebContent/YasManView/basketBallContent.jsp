@@ -1,12 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<!DOCTYPE html>
-<!-- header -->
-<%@ include file="/YasManView/header.jsp"%>
+    <!DOCTYPE html>
+<html lang="en">
+
+<%@ include file="/YasManView/header2.jsp"%>
+
+<%-- <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Webpixels">
+    <%@ include file="/YasManView/setting.jsp"%>
+    <title>경기장 상세 내용</title>
+
+    <!-- CSS -->
+    <!-- Favicon -->
+    <link rel="stylesheet" href="/YasMan/YasManView/assets/libs/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="/YasMan/YasManView/assets/css/quick-website.css" id="stylesheet">
+    <link rel="stylesheet" href="/YasMan/YasManView/assets/css/index.css">
+    <link rel="icon" href="/YasManView/Images/assets/img/yasman/YasmanLogoBlack.png" type="image/png">
+    <!-- 형광펜 css -->
+    <link href="/YasMan/YasManView/assets/css/neon.css">
+    <!-- Preloader -->
+    <link href="/YasMan/YasManView/assets/css/preloader.css" rel="stylesheet">
+    
+</head> --%>
+
 <body>
 
-
+    	<!-- header -->
+    	<!-- header -->
 
     <section class="slice slice-lg" style="padding-top: 0;">
             <div class="container">
@@ -115,7 +139,7 @@
                 </div>         
     </section>
 
-	 <%@ include file="/YasManView/footer.jsp"%>
+	 <%@ include file="/YasManView/footer2.jsp"%>
    
 </body>
 </html>

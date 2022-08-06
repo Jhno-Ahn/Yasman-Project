@@ -17,7 +17,7 @@
     <!-- 형광펜 css -->
     <link href="/YasMan/YasManView/assets/css/neon.css">
     <!-- Preloader -->
-    <link href="/YasMan/YasManView/assets/css/preloader.css" rel="stylesheet">
+    
     <script src="/YasMan/YasManView/script.js"></script>
 
     <!-- CSS -->
@@ -59,7 +59,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mt-4 mt-lg-0 ml-auto">
                     <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
-                        <a class="nav-link" href="category.html" role="button" data-toggle="dropdown"
+                        <a class="nav-link" href="#" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false" style="color: seagreen;">Category</a>
            <!-- =================================================로그인을 안 했을 때============================================ -->
                          	<c:if test = "${sessionScope.memId eq null}">
@@ -83,7 +83,7 @@
 		                            <a href="footBallBoard.do?id=${id}" class="dropdown-item">FootBall</a>
 		                            <a href="basketBallBoard.do?id=${id}" class="dropdown-item">BasketBall</a>
 		                            <a href="storyList.do?id=${id}" class="dropdown-item">Yasman Story</a>
-		                            <a href="Mypage.do" class="dropdown-item">MyPage</a>
+		                            <a href="myPage.do?id=${id}" class="dropdown-item">MyPage</a>
 		                            <div class="dropdown-divider"></div>
 		                            <a href="loginForm.do" class="dropdown-item"></a>
 		                        </div>

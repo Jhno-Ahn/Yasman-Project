@@ -4,15 +4,17 @@
     
     
 
-<%@ include file="setting.jsp"%>
+<%-- <%@ include file="setting.jsp"%> --%>
 
     <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<%-- <head>
    <title>Match Form</title>
-   <%@ include file="/YasManView/header.jsp"%>
-</head>
+   <%@ include file="/YasManView/head.jsp"%>
+</head> --%>
+
+<%@ include file="/YasManView/header2.jsp"%>
 
 <body>
 
@@ -90,7 +92,7 @@
         </div>
     </section>
     
-	 <%@ include file="/YasManView/footer.jsp"%>
+	 <%@ include file="/YasManView/footer2.jsp"%>
 
 </body>
 </html>

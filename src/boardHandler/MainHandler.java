@@ -20,7 +20,6 @@ public class MainHandler implements CommandHandler{
 	@RequestMapping("/main")
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse respones) throws Throwable {
-		// TODO Auto-generated method stub
 		if(request.getParameter("id") != null) {
 			String id = request.getParameter("id");
 			request.setAttribute("id", id);

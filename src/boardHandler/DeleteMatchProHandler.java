@@ -1,6 +1,6 @@
 package boardHandler;
 
-import java.util.HashMap;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import board.MatchBoardDao;
-import board.MatchBoardDataBean;
 import member.MemberLogonDao;
 import member.MemberLogonDataBean;
 
@@ -28,29 +27,21 @@ public class DeleteMatchProHandler implements CommandHandler{
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse respones) throws Throwable {
 		
 		int match_num = Integer.parseInt(request.getParameter("match_num"));
-		int member_num = Integer.parseInt(request.getParameter("member_num"));
-		MemberLogonDataBean dto = logonDao.getMember_num(member_num);
+		int result_board = matchDao.deleteMatch(match_num);
 		
-		//String id = dto.getId();
-		HashMap<String, Integer> map = new HashMap<String, Integer>();
-		map.put("match_num", match_num);
-		map.put("member_num", member_num);
+		List<MemberLogonDataBean> dtos = logonDao.confirmMatch(match_num);
 		
-		if(dto.getMy_match_num_first() == match_num) {
-			logonDao.cancelMatchBoard_first(member_num);
-		} else if(dto.getMy_match_num_second() == match_num){
-			logonDao.cancelMatchBoard_second(member_num);
-		} else if(dto.getMy_match_num_third() == match_num){
-			logonDao.cancelMatchBoard_third(member_num);
-		}
-		
-		matchDao.cancelMatchBoard_personnel(match_num);
-		
-		MatchBoardDataBean dto_board = matchDao.searchMatch(map);
-		if(dto_board.getMatch_member_num_first() == member_num) {
-			matchDao.cancelMatchBoard_member_num_first(match_num);
-		} else if(dto_board.getMatch_member_num_second() == member_num){
-			matchDao.cancelMatchBoard_member_num_second(match_num);
+		for(MemberLogonDataBean dto : dtos) {
+			if(dto.getMy_match_num_first() == match_num) {
+				int result = logonDao.deleteMatch_member_first(match_num);
+				request.setAttribute("result", result);
+			} else if (dto.getMy_match_num_second() == match_num) {
+				int result = logonDao.deleteMatch_member_second(match_num);
+				request.setAttribute("result", result);
+			} else {
+				int result = logonDao.deleteMatch_member_third(match_num);
+				request.setAttribute("result", result);
+			}
 		}
 		
 		return new ModelAndView("deleteMatchPro");

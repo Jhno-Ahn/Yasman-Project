@@ -1,17 +1,6 @@
-<%@page import="story.StoryDataBean" %>
-<%@page import="story.StoryDBBean" %>
-<%@page import="story.StoryDao" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
-
-
-    
-<!DOCTYPE html>
-<html>
-	<%@ include file="/YasManView/header2.jsp"%>
+<%@ include file="/YasManView/header2.jsp"%>
     <!-- Main content -->
     <section class="slice slice-lg pb-5">
         <div class="container">
@@ -28,12 +17,14 @@
             </div>
             <!-- 로그인 했을때만 보이게  -->      
             <c:if test = "${sessionScope.memId ne null}">
+             <c:if test = "${id ne 'rhksflwk123'}">
             <div class="row ml-3">
             	<button type="button" class="btn btn-lg" 
                     style="background-color:  rgb(156, 218, 243); border-style: none;">
                     <a style="color: white;" href="storyInputForm.do?id=${requestScope.id}">스토리 작성</a>
                 </button>
             </div>
+            </c:if>
             </c:if>
             <br>
             <!--  -->
@@ -102,6 +93,6 @@
 				});
 			</script>
 		<%@ include file="/YasManView/footer2.jsp"%>
+</div>
+</section>
 	
-	
-</html>

@@ -29,11 +29,9 @@ public class LoginProHandler implements CommandHandler{
 		   String passwd = request.getParameter( "passwd" );
 		  
 		   int result = logonDao.check( id, passwd );
-		   //MemberLogonDataBean dto = logonDao.getMember(id);
 		   
 		   request.setAttribute("result", result);
 		   request.setAttribute("id", id);
-		   //request.setAttribute("member_num", dto.getMember_num());
 		
 		return new ModelAndView("loginPro");
 	}

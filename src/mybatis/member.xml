@@ -35,16 +35,28 @@
  		values(yas_member_num.NEXTVAL, #{id}, #{member_name}, #{nick_name}, #{passwd}, #{member_addr}, #{member_tel}, #{reg_num}, #{member_reg_date},
  		null, null, null)
  	</insert>
- 	<!-- 
- 	<delete id = "deleteMember" parameterType = "String">
- 		delete from member where id = #{id}
- 	</delete>
  	
- 	<update id = "modifyMember" parameterType = "member.LogonDataBean" 	>
- 		update member set passwd = #{passwd}, tel = #{tel, jdbcType=VARCHAR}, email = #{email, jdbcType=VARCHAR}
+ 	<update id = "modifyMember" parameterType = "member.MemberLogonDataBean" 	>
+ 		update yas_member set passwd = #{passwd}, member_tel = #{member_tel}, member_addr = #{member_addr}
  		where id = #{id} 
  	</update>
- 	 -->
+ 	
+ 	<delete id = "deleteMember" parameterType = "String">
+ 		delete from yas_member where id = #{id}
+ 	</delete>
+ 	
+ 	<delete id = "deleteMatch" parameterType = "Integer">
+ 		delete from yas_match_board where match_num = #{match_num}
+ 	</delete>
+ 	
+ 	<select id = "listMember" resultType = "member.MemberLogonDataBean">
+ 		select * from yas_member
+ 	</select>
+ 	
+ 	<select id = "listMatch" resultType = "board.MatchBoardDataBean">
+ 		select * from yas_match_board
+ 	</select>
+ 	 
  	 <!-- 확인 -->
  	<insert id = "insertMatchBoard" parameterType = "board.MatchBoardDataBean">
  		insert into yas_match_board(match_num, match_kind, match_stardi_name,
@@ -81,6 +93,12 @@
 	<select id = "confirmMyMatch_third" parameterType = "String" resultType = "member.MemberLogonDataBean">
 		select my_match_num_third from yas_member where id = #{id}
 	</select>
+	
+	<select id = "confirmMatch" parameterType = "Integer" resultType = "member.MemberLogonDataBean">
+		select * from yas_member where my_match_num_first = #{match_num} or my_match_num_second = #{match_num}
+		or my_match_num_third = #{match_num}
+	</select>
+	
 	 
 	 <update id = "applyMatchBoard_first" parameterType="java.util.Map">
 	 	update yas_member set my_match_num_first = #{match_num} where member_num = #{member_num}
@@ -144,9 +162,21 @@
 	 	update yas_match_board set match_member_num_second = null where match_num = #{match_num}
 	 </update>
 	 
+	 <update id = "deleteMatch_member_first" parameterType = "Integer">
+	 	update yas_member set my_match_num_first = null where my_match_num_first = #{match_num}
+	 </update>
 	 
+	 <update id = "deleteMatch_member_second" parameterType = "Integer">
+	 	update yas_member set my_match_num_second = null where my_match_num_second = #{match_num}
+	 </update>
 	 
+	 <update id = "deleteMatch_member_third" parameterType = "Integer">
+	 	update yas_member set my_match_num_third = null where my_match_num_third = #{match_num}
+	 </update>
 	 
+	 <select id = "checkMatch" parameterType = "java.util.Map" resultType = "Integer">
+	 	select count(*) from yas_match_board where match_stardi_name = #{match_stardi_name} and match_day = #{match_day} and match_time = #{match_time}
+	 </select>
 	 
 	 
  </mapper>

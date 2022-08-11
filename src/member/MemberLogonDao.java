@@ -1,6 +1,7 @@
 package member;
 
 import java.util.HashMap;
+import java.util.List;
 
 public interface MemberLogonDao {
 	
@@ -18,7 +19,12 @@ public interface MemberLogonDao {
 	public int cancelMatchBoard_first(int member_num);
 	public int cancelMatchBoard_second(int member_num);
 	public int cancelMatchBoard_third(int member_num);
-//	public int deleteMember(String id);
-//	public int modifyMember(MemberLogonDataBean dto);
+	public int deleteMember(String id);
+	public int modifyMember(MemberLogonDataBean dto);
+	public List<MemberLogonDataBean> listMember();
+	public List<MemberLogonDataBean> confirmMatch(int match_num);
+	public int deleteMatch_member_first(int match_num);
+	public int deleteMatch_member_second(int match_num);
+	public int deleteMatch_member_third(int match_num);
 
 }

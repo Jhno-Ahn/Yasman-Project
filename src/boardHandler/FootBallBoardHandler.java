@@ -26,7 +26,6 @@ public class FootBallBoardHandler implements CommandHandler{
 			request.setAttribute("id", id);
 			request.setAttribute("nick_name", logonDao.getNickName(id));
 			
-			MatchBoardDBBean matchDao = new MatchBoardDBBean();
 		}
 		
 		return new ModelAndView("footBallBoard");

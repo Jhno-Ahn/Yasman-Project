@@ -1,5 +1,7 @@
 package boardHandler;
 
+import java.util.HashMap;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +18,7 @@ import member.MemberLogonDao;
 public class BasketMatchInputProHandler implements CommandHandler{
 	
 	@Resource
-	private MatchBoardDao matchBoardDao;
+	private MatchBoardDao matchDao;
 	@Resource
 	private MemberLogonDao logonDao;
 	
@@ -39,9 +41,23 @@ public class BasketMatchInputProHandler implements CommandHandler{
 		dto.setMatch_day(request.getParameter("match_day"));
 		dto.setMatch_time(request.getParameter("match_time"));
 		
-		int result = matchBoardDao.insertMatchBoard(dto);
-		request.setAttribute("result", result);
+		String match_stardi_name = dto.getMatch_stardi_name();
+		String match_day = dto.getMatch_day();
+		String match_time = dto.getMatch_time();
 		
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("match_stardi_name", match_stardi_name);
+		map.put("match_day", match_day);
+		map.put("match_time", match_time);
+		int result_board = matchDao.checkMatch(map);
+		
+		if(result_board == 0) {
+			int result = matchDao.insertMatchBoard(dto);
+			request.setAttribute("result", result);
+		} else {
+			int result = 0;
+			request.setAttribute("result", result);
+		}
 		
 		return new ModelAndView("basketMatchInputPro");
 	}

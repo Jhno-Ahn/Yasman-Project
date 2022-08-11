@@ -72,31 +72,55 @@ function confirm_nick_name() {
 	window.open(url, "confirm", "menubar=no, scrollbar=no, status=no, width=400, height=300");
 }
 
-// 야스맨 농구 지원 및 취소------------------------------------------------------------------------------------------------------------
-function applyBasketMatch_A(id, match_num) {
-	var url = "applyBasketMatchForm.do?id=" + id + "&match_num=" + match_num;
+// 야스맨 매치 지원 및 취소------------------------------------------------------------------------------------------------------------
+function applyMatch_A(id, match_num) {
+	var url = "applyMatchForm.do?id=" + id + "&match_num=" + match_num;
 	window.open(url, "confirm", "menubar=no, scrollbar=no, status=no, width=400, height=300");
-	self.close();
 }
 
-function applyBasketMatch_B(id, match_num) {
-	var url = "applyBasketMatchPro.do?id=" + id + "&match_num=" + match_num;
-	window.open(url, "conform", "menubar=no, scrillbar=no, status=no, width=400, height=300");
-	self.close();
+function applyMatch_B(id, match_num) {
+	var url = "applyMatchPro.do?id=" + id + "&match_num=" + match_num;
+	window.open(url, "confirm", "menubar=no, scrillbar=no, status=no, width=400, height=300");
 }
 
 function cancelMatch_A(match_num, member_num) {
-	var url = "deleteMatchForm.do?match_num=" + match_num + "&member_num=" + member_num;
+	var url = "cancelMatchForm.do?match_num=" + match_num + "&member_num=" + member_num;
 	window.open(url, "confirm", "menubar=no, scrollbar=no, status=no, width=400, height=300");
 }
 
 function cancelMatch_B(member_num, match_num) {
-	var url = "deleteMatchPro.do?match_num=" + match_num + "&member_num=" + member_num;
+	var url = "cancelMatchPro.do?match_num=" + match_num + "&member_num=" + member_num;
 	window.open(url, "confirm", "menubar=no, scrollbar=no, status=no, width=400, height=300");
 	
 }
 //------------------------------------------------------------------------------------------------------------------------
 	
+// 회원 및 매치 관리----------------------------------------------------------------------------------------------------
+
+function deleteMember_A(id, nick_name) {
+	var url = "deleteMemberForm.do?id=" + id + "&nick_name=" + nick_name;
+	window.open(url, "confirm", "menubar=no, scrollbar=no, status=no, width=400, height=300");
+}
+
+function deleteMember_B(id, nick_name) {
+	var url = "deleteMemberPro.do?id=" + id + "&nick_name=" + nick_name;
+	window.open(url, "confirm", "menubar=no, scrollbar=no, status=no, width=400, height=300");
+}
+
+function deleteMatch_A(match_num) {
+	var url = "deleteMatchForm.do?match_num=" + match_num;
+	window.open(url, "confirm", "menubar=no, scrollbar=no, status=no, width=400, height=300");
+}
+
+function deleteMatch_B(match_num) {
+	var url = "deleteMatchPro.do?match_num=" + match_num;
+	window.open(url, "confirm", "menubar=no, scrollbar=no, status=no, width=400, height=300");
+}
+
+//회원 관리----------------------------------------------------------------------------------------------------
+
+
+
 // 야스멘 중복확인
 function confirmidcheck() {
 	if( ! confirmform.id.value ){

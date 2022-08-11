@@ -17,5 +17,7 @@ public interface MatchBoardDao {
 	public MatchBoardDataBean searchMatch(HashMap<String, Integer> map);
 	public int cancelMatchBoard_member_num_first(int match_num);
 	public int cancelMatchBoard_member_num_second(int match_num);
+	public List<MatchBoardDataBean> listMatch();
+	public int checkMatch(HashMap <String, String> map);
 
 }

@@ -25,6 +25,7 @@ public class MemberInputProHandler implements CommandHandler{
 		
 		request.setCharacterEncoding("utf-8");
 		
+		String id = request.getParameter("id");
 		String doro = request.getParameter("doro");
 		String jibun = request.getParameter("jibun");
 		
@@ -42,6 +43,7 @@ public class MemberInputProHandler implements CommandHandler{
 	
 		int result = logonDao.insertMember(dto);
 		request.setAttribute("result", result );
+		request.setAttribute("id", id);
 		
 		return new ModelAndView("memberInputPro");
 	}

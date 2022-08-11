@@ -33,6 +33,8 @@ public class MySportsHandler implements CommandHandler{
 		List<MatchBoardDataBean> dto_board = matchDao.searchList(member_num);
 		request.setAttribute("dto_board", dto_board);
 		request.setAttribute("dto", dto);
+		request.setAttribute("nick_name", logonDao.getNickName(id));
+		request.setAttribute("id", id);
 		
 		return new ModelAndView("mySports");
 	}

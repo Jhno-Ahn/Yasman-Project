@@ -27,7 +27,6 @@ public class BasketBallBoardHandler implements CommandHandler{
 			request.setAttribute("id", id);
 			request.setAttribute("nick_name", logonDao.getNickName(id));
 			
-			MatchBoardDBBean matchDao = new MatchBoardDBBean();
 		}
 		
 		return new ModelAndView("basketBallBoard");

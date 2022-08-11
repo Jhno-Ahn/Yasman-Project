@@ -12,6 +12,9 @@
 	<script src="${pageContext.request.contextPath}/YasManView/assets/libs/svg-injector/dist/svg-injector.min.js"></script>
 	<script src="${pageContext.request.contextPath}/YasManView/assets/libs/feather-icons/dist/feather.min.js"></script>
 	<script src="${pageContext.request.contextPath}/YasManView/script.js"></script>
+	<!--googleMap-->
+    <script src="${pageContext.request.contextPath}/YasManView/assets/js/googleMap.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOJ30CGWXHDrkzJsu1xcd4zVV7o_x2fMk&callback=initMap" async defer></script>
 	<!-- Quick JS -->
 	<script src="${pageContext.request.contextPath}/YasManView/assets/js/quick-website.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
@@ -21,17 +24,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+
 	
     <!-- CSS -->
     <link href="${pageContext.request.contextPath}/YasManView/assets/css/chunk.css" rel="stylesheet">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/YasManView/assets/libs/@fortawesome/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/YasManView/assets/css/quick-website.css" id="stylesheet">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/YasManView/assets/css/index.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/YasManView/assets/css/googleMap.css">
     <link rel="icon" href="${pageContext.request.contextPath}/YasManView/assets/img/yasman/YasmanLogoBlack.png" type="image/png">
 	<link rel="stylesheet" href="/YasMan/YasManView/memberInputForm.css">
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="${pageContext.request.contextPath}/YasManView/assets/css/neon.css">
 	<style>
     	#table {
     		align:center;
@@ -44,9 +48,16 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-dark-dark">
         <div class="container">
             <!-- Brand -->
+            <c:if test = "${sessionScope.memId ne null}">
             <a class="navbar-brand" href="main.do?id=${id}">
                 <img alt="Image placeholder" src="${pageContext.request.contextPath}/YasManView/assets/img/yasman/YasmanLogoBlack.png" style="height: 120px" ; id="navbar-logo">
             </a>
+            </c:if>
+            <c:if test = "${sessionScope.memId eq null}">
+            <a class="navbar-brand" href="main.do">
+                <img alt="Image placeholder" src="${pageContext.request.contextPath}/YasManView/assets/img/yasman/YasmanLogoBlack.png" style="height: 120px" ; id="navbar-logo">
+            </a>
+            </c:if>
             <!-- Toggler -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,6 +93,7 @@
 		                            <a href="basketBallBoard.do?id=${id}" class="dropdown-item">BasketBall</a>
 		                            <a href="storyList.do?id=${id}" class="dropdown-item">Yasman Story</a>
 		                            <a href="myPage.do?id=${id}" class="dropdown-item">MyPage</a>
+		                            <a href="logout.do" class="dropdown-item">LogOut</a>
 		                            <div class="dropdown-divider"></div>
 		                            <a href="loginForm.do" class="dropdown-item"></a>
 		                        </div>

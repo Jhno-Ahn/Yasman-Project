@@ -12,7 +12,7 @@ public class LoginFormHandler implements CommandHandler{
 	@RequestMapping("/loginForm")
 	@Override
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse respones) throws Throwable {
-		// TODO Auto-generated method stub
+		
 		return new ModelAndView("loginForm");
 	}
 

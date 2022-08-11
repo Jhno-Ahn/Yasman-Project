@@ -26,6 +26,7 @@ public class MyPageHandler implements CommandHandler{
 		String id = request.getParameter("id");
 		MemberLogonDataBean dto = logonDao.getMember(id);
 		request.setAttribute("id", id);
+		request.setAttribute("nick_name", logonDao.getNickName(id));
 		request.setAttribute("dto", dto);
 		
 		return new ModelAndView("myPage");

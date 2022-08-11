@@ -42,27 +42,17 @@ public class StroyInputProHandler implements CommandHandler{
 		request.setCharacterEncoding("utf-8");
 		
 		
-		String path = "C:\\AI\\Workspace\\YasMan\\WebContent\\YasManView\\assets\\img\\yasman"; 
+		String path = "C:\\AI\\workspace\\YasMan\\WebContent\\YasManView\\assets\\img\\yasman"; 
 		
 		
 		MultipartRequest multi = new MultipartRequest( request, path, 1024*1024*30, "utf-8", new DefaultFileRenamePolicy() );
 		
 		String sysFileName = multi.getFilesystemName("story_img");
-		//String ogFileName = multi.getOriginalFileName("story_img");
-		//String ogName = path + "\\" + sysFileName;
-		//String sysName = path + "\\t" + sysFileName;
-		
-		//sysFileName = sysFileName.substring(sysFileName.lastIndexOf("\\")+1);
-		
-		//UUID uuid = UUID.randomUUID();
-		//sysFileName = uuid.toString() + "_" + sysFileName;
-	
 		
 		if(request.getParameter("id") != null) {
 			String id = request.getParameter("id");
 			request.setAttribute("id", id);
 			request.setAttribute("nick_name", logonDao.getNickName(id));
-			
 		}
 		
 		

@@ -15,9 +15,7 @@ public class DeleteMatchFormHandler implements CommandHandler{
 	public ModelAndView process(HttpServletRequest request, HttpServletResponse respones) throws Throwable {
 		
 		int match_num = Integer.parseInt(request.getParameter("match_num"));
-		int member_num = Integer.parseInt(request.getParameter("member_num"));
 		request.setAttribute("match_num", match_num);
-		request.setAttribute("member_num", member_num);
 		
 		return new ModelAndView("deleteMatchForm");
 	}
@@ -25,4 +23,3 @@ public class DeleteMatchFormHandler implements CommandHandler{
 	
 
 }
-

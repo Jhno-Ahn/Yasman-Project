@@ -39,20 +39,20 @@ public class ApplyFootMatchProHandler implements CommandHandler{
 		map.put("match_num", match_num);
 		
 		
-		
-		//여기에 두 줄만 기입
-		matchDao.matchBoard_personnel(match_num);
-		MatchBoardDataBean dto_board = matchDao.contentMatch(match_num);
-		if(dto_board.getMatch_member_num_first() == 0 || dto_board.getMatch_member_num_second() == 0) {
-			if(dto_board.getMatch_member_num_first() == 0) {
-				matchDao.matchBoard_member_num_first(map);
-			} else {
-				matchDao.matchBoard_member_num_second(map);
-			}
-		
 		int result = logonDao.applyMatchBoard(map, id);
-		request.setAttribute("result", result);
+		if(result == 0) {
+		} else {
+			matchDao.matchBoard_personnel(match_num);
+			MatchBoardDataBean dto_board = matchDao.contentMatch(match_num);
+			if(dto_board.getMatch_member_num_first() == 0 || dto_board.getMatch_member_num_second() == 0) {
+				if(dto_board.getMatch_member_num_first() == 0) {
+					matchDao.matchBoard_member_num_first(map);
+				} else {
+					matchDao.matchBoard_member_num_second(map);
+				}
 		}
+	}
+		request.setAttribute("result", result);
 		
 		return new ModelAndView("applyFootMatchPro");
 	}

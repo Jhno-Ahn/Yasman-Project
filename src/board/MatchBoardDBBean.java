@@ -15,6 +15,10 @@ public class MatchBoardDBBean implements MatchBoardDao{
 		return SqlMapClient.getSession().selectList("YasMember.selectList", match_stardi_name);
 	}
 	
+	public List<MatchBoardDataBean> listMatch() {
+		return SqlMapClient.getSession().selectList("YasMember.listMatch");
+	}
+	
 	public MatchBoardDataBean contentMatch(int match_num) {
 		return SqlMapClient.getSession().selectOne("YasMember.contentMatch", match_num);
 	}
@@ -53,6 +57,10 @@ public class MatchBoardDBBean implements MatchBoardDao{
 	
 	public int cancelMatchBoard_member_num_second(int match_num) {
 		return SqlMapClient.getSession().update("YasMember.cancelMatchBoard_member_num_second", match_num);
+	}
+	
+	public int checkMatch(HashMap <String, String> map) {
+		return SqlMapClient.getSession().selectOne("YasMember.checkMatch", map);
 	}
 	
 }

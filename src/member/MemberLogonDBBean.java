@@ -4,6 +4,7 @@ package member;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -16,6 +17,10 @@ public class MemberLogonDBBean implements MemberLogonDao{
 	
 	public int insertMember(MemberLogonDataBean dto) {
 			return SqlMapClient.getSession().insert("YasMember.insertMember", dto);
+	}
+	
+	public int modifyMember(MemberLogonDataBean dto) {
+		return SqlMapClient.getSession().update("YasMember.modifyMember", dto);
 	}
 	
 	public String getNickName(String id) {
@@ -50,11 +55,13 @@ public class MemberLogonDBBean implements MemberLogonDao{
 		return result;
 	}
 	
+	public List<MemberLogonDataBean> listMember() {
+		return SqlMapClient.getSession().selectList("YasMember.listMember");
+	}
 	
-	
-//	public int deleteMember(String id) {
-//		return SqlMapClient.getSession().delete("Member.deleteMember", id);
-//	}
+	public int deleteMember(String id) {
+		return SqlMapClient.getSession().delete("YasMember.deleteMember", id);
+	}
 
 	
 	public MemberLogonDataBean getMember(String id) {
@@ -106,9 +113,23 @@ public class MemberLogonDBBean implements MemberLogonDao{
 	public int cancelMatchBoard_third(int member_num) {
 		return SqlMapClient.getSession().update("YasMember.cancelMatch_board_second", member_num);
 	}
-//	public int modifyMember(MemberLogonDataBean dto) {
-//			return SqlMapClient.getSession().update("Member.modifyMember", dto);
-//	}
+	
+	public List<MemberLogonDataBean> confirmMatch(int match_num) {
+		return SqlMapClient.getSession().selectList("YasMember.confirmMatch", match_num);
+	}
+	
+	public int deleteMatch_member_first(int match_num) {
+		return SqlMapClient.getSession().update("YasMember.deleteMatch_member_first", match_num);
+	}
+	
+	public int deleteMatch_member_second(int match_num) {
+		return SqlMapClient.getSession().update("YasMember.deleteMatch_member_second", match_num);
+	}
+	
+	public int deleteMatch_member_third(int match_num) {
+		return SqlMapClient.getSession().update("YasMember.deleteMatch_member_third", match_num);
+	}
+	
 }
 // class
 // DAO 처리빈

@@ -80,9 +80,7 @@ public class StoryListHandler implements CommandHandler{
 			map.put("start", start);
 			map.put("end",end);
 			
-			//List<StoryDataBean> dtos = new ArrayList<StoryDataBean>();
 			List<StoryDataBean> dtos = storyDao.getList(map);
-			//dtos = this.storyDao.getList(map);
 			request.setAttribute("dtos", dtos);
 			
 		}

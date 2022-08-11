@@ -26,7 +26,6 @@ public class FootMatchInputFormHandler implements CommandHandler{
 			request.setAttribute("nick_name", logonDao.getNickName(id));
 		}
 		
-		
 		return new ModelAndView("footMatchInputForm");
 	}
 	
